@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+        background: linear-gradient(180deg, #0C1216, #1A416A);
+}
+
+#main-navbar {
+    height: 4em;
+    background: linear-gradient(180deg, #0C131A, #1A416A);
+}
+
