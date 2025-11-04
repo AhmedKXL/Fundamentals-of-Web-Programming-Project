@@ -11,7 +11,7 @@ The Scores table records the scores for each user per game.
 */
 
 CREATE TABLE Users (
-    user_id INT PRIMARY KEY,
+    user_id INT AUTO_INCREMENT PRIMARY KEY,
     profile_picture VARCHAR(255), -- File name of the avatar image
     full_name VARCHAR(100),
     gender ENUM('male', 'female', 'prefer_not_to_say'),
@@ -29,7 +29,7 @@ CREATE TABLE Accounts (
 );
 
 CREATE TABLE Games (
-    game_id INT PRIMARY KEY,
+    game_id INT AUTO_INCREMENT PRIMARY KEY,
     game_name VARCHAR(100)
 );
 
@@ -41,3 +41,4 @@ CREATE TABLE Scores (
     FOREIGN KEY (user_id) REFERENCES Users(user_id),
     FOREIGN KEY (game_id) REFERENCES Games(game_id)
 );
+
