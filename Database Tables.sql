@@ -30,7 +30,7 @@ CREATE TABLE Accounts (
 
 CREATE TABLE Games (
     game_id INT AUTO_INCREMENT PRIMARY KEY,
-    game_name VARCHAR(100) NOT NULL
+    name VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE Scores (
@@ -41,5 +41,6 @@ CREATE TABLE Scores (
     FOREIGN KEY (user_id) REFERENCES Users(user_id),
     FOREIGN KEY (game_id) REFERENCES Games(game_id)
 );
+
 
 
