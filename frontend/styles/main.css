@@ -1,6 +1,8 @@
+/* General Styles */
 * {
     margin: 0;
     padding: 0;
+    color: white;
 }
 
 html, body {
@@ -12,8 +14,41 @@ body {
         background: linear-gradient(180deg, #0C1216, #1A416A);
 }
 
+
+/* Navigation bar styles */
 #main-navbar {
+    display: grid;
+    grid-template-areas: "logo navbar-buttons login";
+    grid-template-columns: 6fr 3fr 1fr;
+    align-items: center;
+    padding: 1em 2em;
     height: 4em;
     background: linear-gradient(180deg, #0C131A, #1A416A);
 }
 
+#login {
+    justify-self: right;
+}
+
+#navbar-buttons {
+    display: grid;
+    grid-template-areas: "navbar-button";
+    grid-auto-flow: column;
+    justify-self: center;
+
+    float: right;
+    height: 100%;
+    width: 100%;
+}
+
+#navbar-buttons a {
+    margin: 0 .5em;
+    background-color: #0C1216;
+    padding: .5em;
+}
+
+.seperator {
+    display: block;
+    height: .05em;
+    background-color: white;
+}
