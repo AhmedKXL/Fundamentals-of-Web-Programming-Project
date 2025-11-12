@@ -1,0 +1,22 @@
+body {
+    grid-template-areas:
+    "main-navbar"
+    "slideshow"
+    "games"
+    "info"
+    "footer";
+    grid-template-rows: 1fr 10fr 10fr 5fr 1fr;
+    gap: 5em;
+    /* justify-items: center; */
+}
+
+#slideshow {
+    background-image: url("https://github.com/mdn/learning-area/blob/main/html/multimedia-and-embedding/tasks/images/images/blueberries.jpg?raw=true");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    
+    height: 75%;
+    width: 75%;
+    justify-self: center;
+}

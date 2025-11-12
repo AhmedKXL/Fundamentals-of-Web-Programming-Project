@@ -6,12 +6,13 @@
 }
 
 html, body {
-    height: 100%;
+    height: max-content;
     width: 100%;
 }
 
 body {
-        background: linear-gradient(180deg, #0C1216, #1A416A);
+    display: grid;
+    background: linear-gradient(180deg, #0C1216, #1A416A);
 }
 
 
