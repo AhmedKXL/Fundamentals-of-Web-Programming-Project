@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Registration Page</title>
+    <link rel="stylesheet" href="./styles/register.css">
+    <script src="./js/register.js" defer></script>
+</head>
+<body>
+    <form class="login-container" action="register.php" method="POST">
+        <h1 class="login-title">Register</h1>
+        
+        <div class="form-row">
+            <div class="form-column">
+                <label class="label username-label" for="username">Username</label>
+                <input type="text" id="username" name="username" class="username-field" placeholder="Enter your username" required>
+
+                <label class="label fullname-label" for="fullname">Full Name</label>
+                <input type="text" id="fullname" name="fullname" class="username-field" placeholder="Enter your full name" required>
+
+                <label class="label password-label" for="password">Password</label>
+                <input type="password" id="password" name="password" class="password-field" placeholder="Enter your password" required>
+
+                <label class="label dob-label" for="dob">Date of Birth</label>
+                <input type="date" id="dob" name="dob" class="username-field" required>
+            </div>
+
+            <div class="form-column">
+                <label class="label gender-label" for="gender">Gender</label>
+                <select id="gender" name="gender" class="username-field">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="prefer_not_to_say">Prefer not to say</option>
+                </select>
+
+                <label class="label email-label" for="email">Email (optional)</label>
+                <input type="email" id="email" name="email" class="username-field" placeholder="Enter your email">
+
+                <label class="label phone-label" for="phone">Phone Number (optional)</label>
+                <input type="tel" id="phone" name="phone" class="username-field" placeholder="Enter your phone number">
+                <label class="label timezone-label" for="timezone">Timezone</label>
+                <select id="timezone" name="timezone" class="username-field">
+                    <option value="UTC-9">UTC-9</option>
+                    <option value="UTC-8">UTC-8</option>
+                    <option value="UTC-7">UTC-7</option>
+                    <option value="UTC-6">UTC-6</option>
+                    <option value="UTC-5">UTC-5</option>
+                    <option value="UTC-4">UTC-4</option>
+                    <option value="UTC-3">UTC-3</option>
+                    <option value="UTC-2">UTC-2</option>
+                    <option value="UTC-1">UTC-1</option>
+                    <option value="UTC-10">UTC-10</option>
+                    <option value="UTC-11">UTC-11</option>
+                    <option value="UTC" selected>UTC</option>
+                    <option value="UTC+1">UTC+1</option>
+                    <option value="UTC+2">UTC+2</option>
+                    <option value="UTC+3">UTC+3</option>
+                    <option value="UTC+4">UTC+4</option>
+                    <option value="UTC+5">UTC+5</option>
+                    <option value="UTC+6">UTC+6</option>
+                    <option value="UTC+7">UTC+7</option>
+                    <option value="UTC+8">UTC+8</option>
+                    <option value="UTC+9">UTC+9</option>
+                    <option value="UTC+10">UTC+10</option>
+                    <option value="UTC+11">UTC+11</option>
+                    <option value="UTC+12">UTC+12</option>
+                </select>
+            </div>
+        </div>
+
+        <button type="submit" class="login-button">Register</button>
+        <p class="register-text">Already have an account? <a href="login.html">Login</a></p>
+    </form>
+</body>
+</html>
