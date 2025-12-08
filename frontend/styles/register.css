@@ -1,5 +1,6 @@
 
 body {
+    transform: scale(0.9); /* Reduces everything to 90% of its original size */
     display: flex;
     height: 100vh;
     justify-content: center;
@@ -8,6 +9,7 @@ body {
 }
 
 h1 {
+    font-family: Arial, Helvetica, sans-serif;
     color: #FFFFFF;
 }
 
@@ -58,11 +60,13 @@ a {
     line-height: 24px;
     color: #FFFFFF;
     opacity: 0.9;
+    margin: 0px 3px; /* Move labels a little to the right */
 }
 
 .login-button {
-    width: 100%;
+    width: 60%;
     height: 48px;
+    align-self: center;
     background: #1A4774;
     border-radius: 10px;
     color: #FFFFFF;
@@ -71,10 +75,12 @@ a {
     font-size: 20px;
     border: none;
     margin-top: 20px;
+    transition: transform 0.3s ease;
 }
 
 .login-button:hover {
     background: #133353;
+    transform: scale(1.1);
 }
 
 .register-text {
