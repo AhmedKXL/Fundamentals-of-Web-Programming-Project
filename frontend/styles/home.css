@@ -1,0 +1,227 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(166.97deg, #000000 0%, #102B47 85.8%);
+  color: #fff;
+  overflow-x: hidden;
+}
+
+/* --- HEADER --- */
+.header {
+  width: 100%;
+  height: 80px;
+  background: linear-gradient(360deg, #13406C 0%, #0C253E 50%, #040A10 100%);
+  border-bottom: 1px solid #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px; /* slightly smaller padding to move buttons left */
+  box-shadow: 0 4px 4px rgba(0,0,0,0.25);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+
+.logo {
+  background: #d9d9d9;
+  color: #000;
+  padding: 10px 20px;
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  margin-right: 50px;
+}
+
+.nav button {
+  background: #123E69;
+  border: none;
+  color: #fff;
+  margin-left: 8px; /* slightly reduced gap */
+  padding: 10px 18px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.nav button:hover {
+  background: #0b2e4d;
+}
+
+.login {
+  background: #0050A0;
+}
+
+/* --- HERO SECTION --- */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 100px; /* space for fixed header */
+}
+
+.hero-bg {
+  width: 1065px;
+  height: 599px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.leaderboard {
+  position: absolute;
+  left: 260px;
+  top: 80px; /* moved upward slightly */
+  background: rgba(0,0,0,0.7);
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 30px;
+  width: 400px;
+}
+
+.leaderboard h2 {
+  font-size: 48px;
+  margin: 0 0 10px 0;
+}
+
+.leaderboard-header, .leaderboard ul li {
+  display: flex;
+  justify-content: space-between;
+  font-size: 32px;
+}
+
+.leaderboard-header {
+  font-weight: 700;
+  border-bottom: 2px solid #fff;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.leaderboard ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.leaderboard ul li {
+  line-height: 1.8;
+}
+
+/* --- GAMES SECTION --- */
+.games {
+  display: grid;
+  grid-template-columns: repeat(3, 345px);
+  gap: 40px;
+  justify-content: center;
+  margin: 100px 0;
+}
+
+.game-box {
+  background: #277254;
+  height: 192px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 32px;
+}
+
+/* --- FUN FACTS --- */
+.fun-facts {
+  width: 980px;
+  margin: 0 auto 150px;
+  text-align: center;
+}
+
+.fun-facts h3 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.fun-facts p {
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+/* --- FOOTER --- */
+.footer {
+  background: linear-gradient(180deg, #000000 84.62%, #0050A0 100%);
+  border-top: 1px solid #FCF1F1;
+  text-align: center;
+  padding: 30px 0 50px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.footer-section {
+  width: 300px;
+  margin: 20px;
+}
+
+.footer-section h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+  color: #fff;
+  border-bottom: 2px solid #0050A0;
+  display: inline-block;
+}
+
+.footer-section p, 
+.footer-section ul, 
+.footer-section li, 
+.footer-section a {
+  font-size: 18px;
+  color: #ccc;
+  line-height: 1.6;
+  text-decoration: none;
+}
+
+.footer-section a:hover {
+  color: #fff;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+/* --- TO TOP BUTTON --- */
+.to-top {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 50px;
+  height: 50px;
+  padding-bottom: 2px;  /* fix this later */
+  border-radius: 50%;
+  background: linear-gradient(135deg, #000000 15.38%, #0050A0 87.5%);
+  color: #fff;
+  font-size: 30px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #fff;
+  transition: all 0.3s ease;
+  z-index: 999;
+}
+
+.to-top:hover {
+  background: #0050A0;
+  transform: translateY(-5px);
+}
