@@ -10,9 +10,13 @@ The Games table stores the games available.
 The Scores table records the scores for each user per game.
 */
 
+CREATE DATABASE GAME_WEBSITE;
+
+USE GAME_WEBSITE;
+
 CREATE TABLE Users (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
-    profile_picture VARCHAR(255) DEFAULT '.jpg', -- File name of the avatar image
+    profile_picture VARCHAR(255) DEFAULT 'default.jpg', -- File name of the avatar image
     full_name VARCHAR(100) NOT NULL,
     gender ENUM('male', 'female', 'prefer_not_to_say') NOT NULL,
     date_of_birth DATE NOT NULL,
