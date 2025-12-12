@@ -1,29 +1,22 @@
 /* Game CSS */
 .game-container {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    overflow-y: auto; /* Changed to allow scrolling within the game area */
-    background: linear-gradient(166.97deg, #000000 0%, #102B47 85.8%);
     display: flex; /* Align children side by side */
+    height: 95vh;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5em;
 }
 
 /* Game area */
 .game-area {
-    position: relative;
-    width: 711px;
-    height: 684px;
-    margin: auto; /* Centered horizontally */
+    width: 30vw;
+    height: 30vw;
     background: #102B47;
     border-radius: 10px;
 }
 
 /* Score display section */
 .score-display {
-    position: absolute;
-    left: 41px;
-    top: 50%; /* Center vertically where necessary */
-    transform: translateY(-50%); /* Adjust for true vertical centering */
 }
 
 .your-score {
@@ -45,11 +38,9 @@
 }
 
 /* Leaderboard */
-.leaderboard {
-    position: absolute;
-    width: 286px;
+.leaderboard-game {
+    width: 300px;
     top: 50%;
-    left: calc(100% - 300px); /* Adjust position for side alignment */
     background: #102B47;
     border-radius: 10px;
     padding: 20px;
