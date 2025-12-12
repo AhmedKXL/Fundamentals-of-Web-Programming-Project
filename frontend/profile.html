@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile | GamersHub</title>
+    <link rel="stylesheet" href="./styles/home.css">
+    <link rel="stylesheet" href="./styles/profile.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="logo"><img src="../../2222222.jpg" alt="Logo" height="30px"></div>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="login.html" class="login">Login</a>
+    </nav>
+  </header>
+
+  <section class="profile">
+      <div class="photo-and-name">
+          <div class="rectangle15"></div>
+          <div>
+              <h2 class="full-name">John Doe</h2>
+              <p class="username">@JohnDoe123</p>
+          </div>
+          <button class="edit-profile">Edit Profile</button>
+      </div>
+
+      <form class="personal-info">
+          <h3 class="personal-information">Personal Information</h3>
+          <div class="line"></div>
+          <div>
+              <span class="input-section">
+                  <label for="gender">Gender:</label>
+                  <select id="gender" class="input-field">
+                      <option value="male" selected>Male</option>
+                      <option value="female">Female</option>
+                      <option value="prefernottotell">Prefer Not to Tell</option>
+                  </select>
+              </span>
+    
+              <span class="input-section">
+                  <label for="dob">Date of Birth:</label>
+                  <input type="date" id="dob" class="input-field" value="1992-05-02">
+              </span>
+              
+              <span class="input-section">
+                  <label for="timezone">Time Zone:</label>
+                  <input type="text" id="timezone" class="input-field" value="UTC+3">
+              </span>
+          </div>
+        </form>
+
+      <form class="contact-info">
+          <h3 class="contact-information">Contact Information</h3>
+          <div class="line"></div>
+          <div>
+            <span class="input-section">
+                <label for="email">Email:</label>
+                <input type="email" id="email" class="input-field" value="example@mymail.com">
+            </span>
+    
+            <span class="input-section">
+                <label for="phone">Phone Number:</label>
+                <input type="tel" id="phone" class="input-field" value="+966 52 332 1465">
+            </span>
+          </div>
+      </form>
+
+    <div class="high-scores">
+        <h3>High Scores</h3>
+        <div class="line"></div>
+        <div class="leaderboard-profile">
+            <span class="game">Game</span>
+            <span class="score">Score</span>
+        </div>
+        <div class="ranks">
+            <div class="rank">1. Puzzle Game 1: <span class="number-score">97</span></div>
+            <div class="rank">2. Puzzle Game 2: <span class="number-score">83</span></div>
+            <div class="rank">3. Puzzle Game 3: <span class="number-score">72</span></div>
+            <div class="rank">4. Puzzle Game 4: <span class="number-score">45</span></div>
+        </div>
+    </div>
+
+      </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+      <div class="footer-content">
+          <div class="footer-section links">
+              <h2>Quick Links</h2>
+              <ul>
+                  <li><a href="index.html">Home</a></li>
+                  <li><a href="login.html">Login</a></li>
+                  <li><a href="leaderboards.html">Leaderboard</a></li>
+              </ul>
+          </div>
+          <div class="footer-section contact">
+              <h2>Contact</h2>
+              <p>Email: support@gamershub.com</p>
+              <p>© 2025 GamersHub. All rights reserved.</p>
+          </div>
+      </div>
+  </footer>
+</body>
+</html>
