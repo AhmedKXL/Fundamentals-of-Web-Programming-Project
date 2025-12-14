@@ -1,0 +1,62 @@
+/* Use ID to ensure this grid overrides previous game settings */
+#game-board {
+    display: grid;
+    width: 100%;
+    height: 100%;
+    /* 20x20 Grid */
+    grid-template-columns: repeat(20, 1fr);
+    grid-template-rows: repeat(20, 1fr);
+    background-color: #1a1a1a; /* Dark background for the board */
+    border: 2px solid #fff;
+    gap: 1px;
+}
+
+/* Force specific styles for Snake cells to override defaults */
+#game-board .cell {
+    width: 100%;
+    height: 100%;
+    background-color: #2a2a2a; /* Slightly lighter dark for empty cells */
+    border: none !important; /* Remove borders from individual cells */
+    border-radius: 2px;
+    box-shadow: none; /* Reset any shadows */
+}
+
+/* Snake Body - Using !important to force visibility */
+#game-board .cell.snake {
+    background-color: #2ed573 !important; /* Bright Green */
+    box-shadow: 0 0 5px #2ed573;
+    z-index: 10;
+}
+
+/* Snake Head */
+#game-board .cell.snake-head {
+    background-color: #00fa50 !important; /* Lighter Green */
+    transform: scale(1.1); /* Make head slightly bigger */
+}
+
+/* Food */
+#game-board .cell.food {
+    background-color: #ff4757 !important; /* Bright Red */
+    box-shadow: 0 0 8px #ff4757;
+    border-radius: 50%;
+    transform: scale(0.8);
+    z-index: 10;
+}
+
+#reset {
+    margin-top: 20px;
+    color: black;
+    padding: 0.5em 1em;
+    cursor: pointer;
+}
+
+#status-message {
+    text-align: center;
+    margin-top: 15px;
+    color: #fff;
+}
+
+#score {
+    font-weight: bold;
+    color: #2ed573;
+}

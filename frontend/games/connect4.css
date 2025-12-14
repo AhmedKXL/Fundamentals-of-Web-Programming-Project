@@ -1,0 +1,70 @@
+#game-board {
+    display: grid;
+    width: 100%;
+    max-width: 600px; /* Limit width to keep pieces circular */
+    aspect-ratio: 7/6; /* Maintains the board shape */
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    gap: 5px;
+    margin: 0 auto;
+}
+
+.cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #fff;
+    cursor: pointer;
+    background-color: transparent;
+    position: relative;
+}
+
+/* This creates the circular "hole" or "piece" look */
+.cell::before {
+    content: '';
+    width: 80%;
+    height: 80%;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1); /* Empty slot look */
+    transition: background-color 0.3s ease-in;
+}
+
+/* Hover effect on the whole cell/column */
+.cell:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-color: #0050A0; /* Your blue hover color */
+}
+
+/* Player Pieces */
+.cell.red::before {
+    background-color: #ff4757; /* Red Piece */
+    box-shadow: 0 0 10px #ff4757;
+}
+
+.cell.yellow::before {
+    background-color: #ffa502; /* Yellow Piece */
+    box-shadow: 0 0 10px #ffa502;
+}
+
+/* Winning pieces highlight */
+.cell.winner {
+    background-color: #2ed573;
+    border-color: #2ed573;
+}
+
+#reset {
+    margin-top: 20px;
+    color: black;
+    padding: 0.5em 1em;
+    cursor: pointer;
+}
+
+#status-message {
+    text-align: center;
+    margin-top: 15px;
+    height: 1.5em; /* Prevent layout jump */
+}
+
+/* Player turn indicator styles */
+.player-red { color: #ff4757; font-weight: bold; }
+.player-yellow { color: #ffa502; font-weight: bold; }
