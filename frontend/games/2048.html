@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>2048</title>
+        <link rel="stylesheet" href="../styles/base.css">
+        <link rel="stylesheet" href="../styles/home.css">
+        <link rel="stylesheet" href="../styles/game.css">
+        <link rel="stylesheet" href="./2048.css">
+        <script src="./2048.js" defer></script>
+    </head>
+<body>
+  <header class="header">
+    <div class="logo"><img src="../../2222222.jpg" alt="Logo" height="30px"></div>
+    <nav class="nav">
+      <a href="../index.html">Home</a>
+      <a href="../about.html">About</a>
+      <a href="../login.html" class="login">Login</a>
+    </nav>
+  </header>
+
+    <div class="game-container">
+        <div class="score-display">
+            <div class="score your-score">
+                <span>Score:</span>
+                <span id="score">0</span>
+            </div>
+            <button id="go-back" onclick="history.back()">← Go Back</button>
+        </div>
+
+        <div class="game-area">
+            <div id="game-board"></div>
+            <h3 id="status-message">Join the numbers to get 2048!</h3>
+        </div>
+
+        <div class="leaderboard-game">
+            <h2>Leaderboard</h2>
+            <div class="leaderboard-entry">
+                <span class="player">MathWhiz</span>
+                <span class="score">4096</span>
+            </div>
+            <div class="leaderboard-entry">
+                <span class="player">Slider</span>
+                <span class="score">2048</span>
+            </div>
+            <button id="reset">New Game</button>
+        </div>
+    </div>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section links">
+        <h2>Quick Links</h2>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../login.html">Login</a></li>
+          <li><a href="../leaderboards.html">Leaderboard</a></li>
+        </ul>
+      </div>
+      <div class="footer-section contact">
+        <h2>Contact</h2>
+        <p>Email: support@gamershub.com</p>
+        <p>© 2025 GamersHub. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

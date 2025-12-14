@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Simon Says</title>
+        <link rel="stylesheet" href="../styles/base.css">
+        <link rel="stylesheet" href="../styles/home.css">
+        <link rel="stylesheet" href="../styles/game.css">
+        <link rel="stylesheet" href="./simon.css">
+        <script src="./simon.js" defer></script>
+    </head>
+<body>
+  <header class="header">
+    <div class="logo"><img src="../../2222222.jpg" alt="Logo" height="30px"></div>
+    <nav class="nav">
+      <a href="../index.html">Home</a>
+      <a href="../about.html">About</a>
+      <a href="../login.html" class="login">Login</a>
+    </nav>
+  </header>
+
+    <div class="game-container">
+        <div class="score-display">
+            <div class="score your-score">
+                <span>Level:</span>
+                <span id="level-indicator">1</span>
+            </div>
+            <button id="go-back" onclick="history.back()">← Go Back</button>
+        </div>
+
+        <div class="game-area">
+            <div id="game-board">
+                <div class="pad green" data-color="green"></div>
+                <div class="pad red" data-color="red"></div>
+                <div class="pad yellow" data-color="yellow"></div>
+                <div class="pad blue" data-color="blue"></div>
+            </div>
+            <h3 id="status-message">Press Start to Begin</h3>
+        </div>
+
+        <div class="leaderboard-game">
+            <h2>Leaderboard</h2>
+            <div class="leaderboard-entry">
+                <span class="player">MemoryKing</span>
+                <span class="score">Lvl 15</span>
+            </div>
+            <div class="leaderboard-entry">
+                <span class="player">Echo</span>
+                <span class="score">Lvl 12</span>
+            </div>
+            <div class="leaderboard-entry">
+                <span class="player">Repeater</span>
+                <span class="score">Lvl 9</span>
+            </div>
+            <button id="start-btn">Start Game</button>
+        </div>
+    </div>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-section links">
+        <h2>Quick Links</h2>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../login.html">Login</a></li>
+          <li><a href="../leaderboards.html">Leaderboard</a></li>
+        </ul>
+      </div>
+      <div class="footer-section contact">
+        <h2>Contact</h2>
+        <p>Email: support@gamershub.com</p>
+        <p>© 2025 GamersHub. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
