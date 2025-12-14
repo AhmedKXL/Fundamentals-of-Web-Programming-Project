@@ -1,5 +1,5 @@
 <?php
-  session_start();      // use in html
+  session_start();      // use in all html (pages)
 ?>
 <?php
     include("connectToDB.php");
@@ -23,7 +23,4 @@
         echo "Users table is empty!";
     }
     mysqli_close($conn);
-?>
-<?php
-  session_destroy();      // use to logout
 ?>

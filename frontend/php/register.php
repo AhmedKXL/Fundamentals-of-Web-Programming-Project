@@ -1,5 +1,6 @@
 <?php
     include("connectToDB.php");
+    
     if(isset($_POST["register"])){
 
         $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
@@ -21,8 +22,8 @@
             echo "<script>alert('You are now registered!');</script>";
             header("Location: ../login.html");     // insert login page url here
             exit();
-        } catch (mysqli_sql_exception) {
-            echo "<script>alert('ERROR!');</script>"; //might be because username already taken
+        } catch (mysqli_sql_exception $e) {
+            echo "<script>alert('ERROR! {$e->getMessage()}');</script>"; //might be because username already taken
         }
     }
     mysqli_close($conn);

@@ -14,6 +14,12 @@ CREATE DATABASE IF NOT EXISTS GAME_WEBSITE;
 
 USE GAME_WEBSITE;
 
+CREATE TABLE Accounts (
+    user_id INT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(50) UNIQUE NOT NULL,
+    password VARCHAR(255) NOT NULL -- Hashed password (e.g., bcrypt)
+);
+
 CREATE TABLE Users (
     user_id INT AUTO_INCREMENT PRIMARY KEY,
     profile_picture VARCHAR(255) DEFAULT 'default.jpg', -- File name of the avatar image
@@ -22,14 +28,8 @@ CREATE TABLE Users (
     date_of_birth DATE NOT NULL,
     email VARCHAR(100),
     phone_number VARCHAR(20),
-    time_zone VARCHAR(10)
-);
-
-CREATE TABLE Accounts (
-    user_id INT PRIMARY KEY,
-    username VARCHAR(50) UNIQUE NOT NULL,
-    password VARCHAR(255) NOT NULL, -- Hashed password (e.g., bcrypt)
-    FOREIGN KEY (user_id) REFERENCES Users(user_id)
+    time_zone VARCHAR(10),
+    FOREIGN KEY (user_id) REFERENCES Accounts(user_id)
 );
 
 CREATE TABLE Games (
@@ -42,7 +42,7 @@ CREATE TABLE Scores (
     game_id INT NOT NULL,
     score INT NOT NULL,
     PRIMARY KEY (user_id, game_id),
-    FOREIGN KEY (user_id) REFERENCES Users(user_id),
+    FOREIGN KEY (user_id) REFERENCES Accounts(user_id),
     FOREIGN KEY (game_id) REFERENCES Games(game_id)
 );
 
