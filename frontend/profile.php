@@ -13,6 +13,7 @@
     <title>Profile | GamersHub</title>
     <link rel="stylesheet" href="./styles/home.css">
     <link rel="stylesheet" href="./styles/profile.css">
+    <script src="./js/profile.js" defer></script>
 </head>
 <body>
   <!-- Header -->
@@ -27,7 +28,7 @@
 
   <section class="profile">
       <div class="photo-and-name">
-          <div class="rectangle15"></div>
+          <div class="profile-pic"></div>
           <div>
               <h2 class="full-name"><?php echo $row['full_name']; ?></h2>
               <p class="username"><?php echo $row['username']; ?></p>
@@ -41,7 +42,7 @@
           <div>
               <span class="input-section">
                   <label for="gender">Gender:</label>
-                  <select id="gender" class="input-field">
+                  <select id="gender" class="input-field" disabled>
                       <option value="male" <?php if($row['gender'] == 'male') echo 'selected'; ?>>Male</option>
                       <option value="female" <?php if($row['gender'] == 'female') echo 'selected'; ?>>Female</option>
                       <option value="prefer_not_to_say" <?php if($row['gender'] == 'prefer_not_to_say') echo 'selected'; ?>>Prefer Not to Tell</option>
@@ -50,12 +51,12 @@
     
               <span class="input-section">
                   <label for="dob">Date of Birth:</label>
-                  <input type="date" id="dob" class="input-field" value="<?php echo $row['date_of_birth']; ?>">
+                  <input type="date" id="dob" class="input-field" value="<?php echo $row['date_of_birth']; ?>" disabled>
               </span>
               
               <span class="input-section">
                   <label for="timezone">Time Zone:</label>
-                  <input type="text" id="timezone" class="input-field" value="<?php echo $row['time_zone']; ?>">
+                  <input type="text" id="timezone" class="input-field" value="<?php echo $row['time_zone']; ?>" disabled>
               </span>
           </div>
         </form>
@@ -66,30 +67,46 @@
           <div>
             <span class="input-section">
                 <label for="email">Email:</label>
-                <input type="email" id="email" class="input-field" value="<?php echo $row['email']; ?>">
+                <input type="email" id="email" class="input-field" value="<?php echo $row['email']; ?>" disabled>
             </span>
     
             <span class="input-section">
                 <label for="phone">Phone Number:</label>
-                <input type="tel" id="phone" class="input-field" value="<?php echo $row['phone_number']; ?>">
+                <input type="tel" id="phone" class="input-field" value="<?php echo $row['phone_number']; ?>" disabled>
             </span>
           </div>
       </form>
 <?php while($row = mysqli_fetch_assoc($result))   //loop all games and scores (run echo one time (first row) then loop echo) ?>
-    <div class="high-scores">
-        <h3>High Scores</h3>
-        <div class="line"></div>
-        <div class="leaderboard-profile">
-            <span class="game">Game</span>
-            <span class="score">Score</span>
+        <div class="high-scores">
+            <h3>High Scores</h3>
+            <div class="line"></div>
+            <table class="leaderboard-profile">
+                <thead>
+                    <tr>
+                        <th>Game</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="rank">Puzzle Game 1</td>
+                        <td class="number-score">97</td>
+                    </tr>
+                    <tr>
+                        <td class="rank">Puzzle Game 2</td>
+                        <td class="number-score">83</td>
+                    </tr>
+                    <tr>
+                        <td class="rank">Puzzle Game 3</td>
+                        <td class="number-score">72</td>
+                    </tr>
+                    <tr>
+                        <td class="rank">Puzzle Game 4</td>
+                        <td class="number-score">45</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        <div class="ranks">
-            <div class="rank">1. Puzzle Game 1: <span class="number-score">97</span></div>
-            <div class="rank">2. Puzzle Game 2: <span class="number-score">83</span></div>
-            <div class="rank">3. Puzzle Game 3: <span class="number-score">72</span></div>
-            <div class="rank">4. Puzzle Game 4: <span class="number-score">45</span></div>
-        </div>
-    </div>
 
       </div>
   </section>

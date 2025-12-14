@@ -226,3 +226,34 @@ body {
   background: #0050A0;
   transform: translateY(-5px);
 }
+
+.game-box {
+  color: #fff;
+  text-shadow: 2px 2px 4px #000;
+  background-size: 500px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  text-decoration: none;
+}
+
+
+.tictactoe {
+  background-image: url("../images/tictactoe.png");
+}
+
+.matching {
+  background-image: url("../images/matching.png");
+}
+
+.connect4 {
+  background-image: url("../images/connect4.png");
+}
+
+.neat9 {
+  background-image: url("../images/neat9.png");
+}
+
+.snake {
+  background-image: url("../images/snake.png");
+}

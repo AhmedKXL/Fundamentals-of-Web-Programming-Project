@@ -94,8 +94,9 @@ body {
     margin: 0px 3px; /* Move labels a little to the right */
 }
 
-.rectangle15 {
-    background: #0050A0;
+.profile-pic {
+    background-image: url("../images/profile.jpg");
+    background-size: 150px;
     width: 150px;
     height: 150px;
     border-radius: 5px;
@@ -224,4 +225,18 @@ body {
 .to-top:hover {
     background: #0050A0;
     transform: translateY(-5px); /* Subtle lift effect */
+}
+
+.leaderboard-profile {
+    width: 100%; /* Make the table take full width */
+    border-collapse: collapse; /* Combine borders for a cleaner look */
+    margin: 20px 0; /* Space above and below the table */
+    background-color: #00000099;
+    border-radius: 1em;
+}
+
+.leaderboard-profile th, .leaderboard-profile td {
+    border: 1px none #ddd; /* Add border to table cells */
+    padding: 15px; /* Space inside cells */
+    text-align: center; /* Center text in both header and body */
 }

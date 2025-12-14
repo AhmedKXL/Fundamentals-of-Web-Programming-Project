@@ -48,12 +48,11 @@
 
   <!-- Games Section -->
   <section class="games">
-    <div class="game-box">Game</div>
-    <div class="game-box">Game</div>
-    <div class="game-box">Game</div>
-    <div class="game-box">Game</div>
-    <div class="game-box">Game</div>
-    <div class="game-box">Game</div>
+    <a href="./games/tictactoe.html" class="game-box tictactoe">Tic-Tac-Toe</a>
+    <a href="./games/matching.html" class="game-box matching">Matching</a>
+    <a href="./games/connect4.html" class="game-box connect4">Connect-4</a>
+    <a href="./games/snake.html" class="game-box snake">Snake</a>
+    <a href="./games/neatnine.html" class="game-box neat9">Neat Nine</a>
   </section>
 
   <!-- Fun Facts -->

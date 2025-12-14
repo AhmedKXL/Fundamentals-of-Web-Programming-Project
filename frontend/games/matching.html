@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Matching Game</title>
+        <link rel="stylesheet" href="../styles/base.css">
+        <link rel="stylesheet" href="../styles/home.css">
+        <link rel="stylesheet" href="../styles/game.css">
+        <link rel="stylesheet" href="./matching.css">
+        <script src="./matching.js" defer></script>
+    </head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="logo"><img src="../../2222222.jpg" alt="Logo" height="30px"></div>
+    <nav class="nav">
+      <a href="../index.html">Home</a>
+      <a href="../about.html">About</a>
+      <a href="../login.html" class="login">Login</a>
+    </nav>
+  </header>
+
+    <!-- Game Container -->
+    <div class="game-container">
+        <div class="score-display">
+            <div class="score your-score">
+                <span>Time:</span>
+                <span id="timer">0</span>
+            </div>
+            <button id="go-back">← Go Back</button>
+        </div>
+
+        <div class="game-area">
+            <div id="game-board" class="grid"></div>
+        </div>
+
+        <div class="leaderboard-game">
+            <h2>Leaderboard</h2>
+            <div class="leaderboard-entry">
+                <span class="player">Player 1</span>
+                <span class="score">97</span>
+            </div>
+            <div class="leaderboard-entry">
+                <span class="player">Player 2</span>
+                <span class="score">83</span>
+            </div>
+            <div class="leaderboard-entry">
+                <span class="player">Player 3</span>
+                <span class="score">72</span>
+            </div>
+            <button id="reset" onclick="location.reload()">Reset Game</button>
+        </div>
+    </div>
+</body>
+</html>
