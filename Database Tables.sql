@@ -10,7 +10,7 @@ The Games table stores the games available.
 The Scores table records the scores for each user per game.
 */
 
-CREATE DATABASE GAME_WEBSITE;
+CREATE DATABASE IF NOT EXISTS GAME_WEBSITE;
 
 USE GAME_WEBSITE;
 

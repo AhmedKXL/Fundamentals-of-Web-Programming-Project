@@ -3,8 +3,8 @@
 ?>
 <?php
     include("connectToDB.php");
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+    $username = filter_input(INPUT_POST, "username", FILTER_SANITIZE_SPECIAL_CHARS);
+    $password = filter_input(INPUT_POST, "password", FILTER_SANITIZE_SPECIAL_CHARS);
 
     $sql = "SELECT * FROM Accounts";
     $result = mysqli_query($conn, $sql);
@@ -13,7 +13,8 @@
             $hashedPassword = $row['password'];
             if (password_verify($password, $hashedPassword)) {
                 $_SESSION['user_id'] = $row['user_id'];      //retrieve user
-                break;
+                header("Location: ../index.html");
+                exit();
             } else {
                 echo "Incorrect password";
             }
@@ -22,4 +23,7 @@
         echo "Users table is empty!";
     }
     mysqli_close($conn);
+?>
+<?php
+  session_destroy();      // use to logout
 ?>
