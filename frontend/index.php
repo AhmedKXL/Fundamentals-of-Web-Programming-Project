@@ -1,12 +1,13 @@
 <?php
   session_start();
+  include("connectToDB.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Leaderboard Games Page</title>
+  <title>Games Page</title>
   <link rel="stylesheet" href="styles/home.css">
 </head>
 <body>
@@ -15,9 +16,8 @@
   <header class="header">
     <div class="logo"><img src="../../2222222.jpg" alt="Logo" height="30px"></div>
     <nav class="nav">
-      <a href="index.html">Home</a>
       <a href="about.html">About</a>
-      <?php echo (isset($_SESSION['user_id']) ? "Logout" : "<a href=\"login.html\" class=\"login\">Login</a>") ?>
+      <?php echo (isset($_SESSION['user_id']) ? "<a href=\"./php/logout.php\" class=\"login\">Logout</a>" : "<a href=\"./login.php\" class=\"login\">Login</a>") ?>
     </nav>
   </header>
 
@@ -31,6 +31,12 @@
         <span>Score</span>
       </div>
       <ul>
+        <?php
+          $sql = "SELECT username, score FROM Accounts NATURAL JOIN Scores WHERE game_id=";   //need game id
+          $result = mysqli_query($conn, $sql);
+          while($row = mysqli_fetch_assoc($result))
+            echo "<li><span>{$result['username']}</span><span>{$result['score']}</span></li>";
+        ?>
         <li><span>Alcool69</span><span>99</span></li>
         <li><span>Alva123</span><span>80</span></li>
         <li><span>Player3</span><span>79</span></li>
@@ -85,3 +91,6 @@
 
 </body>
 </html>
+<?php 
+  mysqli_close($conn); 
+?>

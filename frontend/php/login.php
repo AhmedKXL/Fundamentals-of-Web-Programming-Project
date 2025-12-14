@@ -11,12 +11,12 @@
     if (mysqli_num_rows($result) > 0) {
         while ($row = mysqli_fetch_assoc($result)) {
             $hashedPassword = $row['password'];
-            if (password_verify($password, $hashedPassword)) {
+            if ($row['username'] == $username && password_verify($password, $hashedPassword)) {
                 $_SESSION['user_id'] = $row['user_id'];      //retrieve user
-                header("Location: ../index.html");
+                header("Location: ../index.php");
                 exit();
             } else {
-                echo "Incorrect password";
+                echo "<script>alert('Incorrect username or password!');</script>";
             }
         }
     } else {
