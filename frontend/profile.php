@@ -1,7 +1,7 @@
 <?php
     session_start();
     include("./php/connectToDB.php");
-    $sql = "SELECT * FROM Accounts NATURAL JOIN Users NATURAL JOIN Scores NATURAL JOIN Games WHERE user_id='{$_SESSION['user_id']}'";   //need game id
+    $sql = "SELECT * FROM Accounts NATURAL JOIN Users NATURAL JOIN Scores NATURAL JOIN Games WHERE user_id={$_SESSION['user_id']}";   //need game id
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);        
 ?>
@@ -119,7 +119,6 @@
               <ul>
                   <li><a href="index.php">Home</a></li>
                   <li><a href="login.php">Login</a></li>
-                  <li><a href="leaderboards.html">Leaderboard</a></li>
               </ul>
           </div>
           <div class="footer-section contact">

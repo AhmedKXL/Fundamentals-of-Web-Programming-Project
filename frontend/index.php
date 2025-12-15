@@ -32,7 +32,7 @@
       </div>
       <ul>
         <?php
-          $sql = "SELECT username, score FROM Accounts NATURAL JOIN Scores WHERE game_id=1";   //need game id
+          $sql = "SELECT username, MAX(score) as score FROM Accounts NATURAL JOIN Scores WHERE game_id=2 GROUP BY user_id ORDER BY MAX(score)";   //need game id
           $result = mysqli_query($conn, $sql);
           while($row = mysqli_fetch_assoc($result))
             echo "<li><span>{$row['username']}</span><span>{$row['score']}</span></li>";
@@ -48,15 +48,15 @@
 
   <!-- Games Section -->
   <section class="games">
-    <a href="./games/tictactoe.html" class="game-box tictactoe"><span class="game-box-inner">Tic-Tac-Toe</span></a>
-    <a href="./games/matching.html" class="game-box matching"><span class="game-box-inner">Matching</span></a>
-    <a href="./games/connect4.html" class="game-box connect4"><span class="game-box-inner">Connect-4</span></a>
-    <a href="./games/snake.html" class="game-box snake"><span class="game-box-inner">Snake</span></a>
-    <a href="./games/neatnine.html" class="game-box neat9"><span class="game-box-inner">Neat Nine</span></a>
-    <a href="./games/2048.html" class="game-box snake"><span class="game-box-inner">2048</span></a> <!-- change snake with game name class -->
-    <a href="./games/finance.html" class="game-box snake"><span class="game-box-inner">Finance!</span></a>
-    <a href="./games/minesweeper.html" class="game-box snake"><span class="game-box-inner">Mine Sweeper</span></a>
-    <a href="./games/simon.html" class="game-box snake"><span class="game-box-inner">Simon Says</span></a>
+    <a href="./games/tictactoe.php" class="game-box tictactoe"><span class="game-box-inner">Tic-Tac-Toe</span></a>
+    <a href="./games/matching.php" class="game-box matching"><span class="game-box-inner">Matching</span></a>
+    <a href="./games/connect4.php" class="game-box connect4"><span class="game-box-inner">Connect-4</span></a>
+    <a href="./games/snake.php" class="game-box snake"><span class="game-box-inner">Snake</span></a>
+    <a href="./games/neatnine.php" class="game-box neat9"><span class="game-box-inner">Neat Nine</span></a>
+    <a href="./games/2048.php" class="game-box snake"><span class="game-box-inner">2048</span></a> <!-- change snake with game name class -->
+    <a href="./games/finance.php" class="game-box snake"><span class="game-box-inner">Finance!</span></a>
+    <a href="./games/minesweeper.php" class="game-box snake"><span class="game-box-inner">Mine Sweeper</span></a>
+    <a href="./games/simon.php" class="game-box snake"><span class="game-box-inner">Simon Says</span></a>
   </section>
 
   <!-- Fun Facts -->

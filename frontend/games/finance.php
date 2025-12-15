@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    include("../php/connectToDB.php");
+    $sql = "SELECT username, MAX(score) as score FROM Accounts NATURAL JOIN Scores WHERE game_id=7 GROUP BY user_id ORDER BY MAX(score)";
+    $result = mysqli_query($conn, $sql);
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -37,6 +43,13 @@
 
         <div class="leaderboard-game">
             <h2>Leaderboard</h2>
+            <?php 
+                while($row = mysqli_fetch_assoc($result))
+                    echo "<div class=\"leaderboard-entry\">
+                            <span class=\"player\">{$row['username']}</span>
+                            <span class=\"score\">{$row['score']}</span>
+                        </div>";
+            ?>
             <div class="leaderboard-entry">
                 <span class="player">SaverPro</span>
                 <span class="score">$2500</span>
@@ -74,3 +87,6 @@
 
 </body>
 </html>
+<?php 
+    mysqli_close($conn);
+?>
