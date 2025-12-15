@@ -14,7 +14,7 @@
     <nav class="nav">
       <a href="../index.html">Home</a>
       <a href="../about.html">About</a>
-      <a href="../login.html" class="login">Login</a>
+      <a href="../login.php" class="login">Login</a>
     </nav>
   </header>
 
@@ -23,6 +23,9 @@
             <div class="score your-score">
                 <span>Turn:</span>
                 <span id="current-player" class="player-red">You (Red)</span>
+                <br>
+                <span>Time:</span>
+                <span id="timer">0</span>
             </div>
             <button id="go-back" onclick="history.back()">&larr; Go Back</button>
         </div>
@@ -45,7 +48,5 @@
             <button id="reset" onclick="location.reload()">Reset Game</button>
         </div>
     </div>
-
-  <a href="#" class="to-top">↑</a>
 </body>
 </html>

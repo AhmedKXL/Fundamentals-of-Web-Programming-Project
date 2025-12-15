@@ -105,6 +105,7 @@ function checkWin() {
     
     if (isWin) {
         isGameActive = false;
+        sendResult(3, moveCount);       // Must use correct id from games table
         statusMessage.innerText = "Puzzle Solved!";
         statusMessage.style.color = "#2ed573";
         
@@ -112,6 +113,13 @@ function checkWin() {
         const allTiles = document.querySelectorAll('.tile');
         allTiles.forEach(t => t.style.borderColor = "#2ed573");
     }
+}
+
+function sendResult(game_id, score) {
+    const formData = new FormData();
+    formData.append("score", score);
+    formData.append("game_id", game_id);
+    fetch("../php/save_score.php", {method: "POST", body: formData});
 }
 
 resetButton.addEventListener('click', initGame);

@@ -53,6 +53,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 alert(`${board[a]} wins!`);
                 gameActive = false;
                 clearInterval(timerInterval);  // Stop the timer here
+                if(board[a] === currentPlayer)
+                    sendResult(1, timer);       // Must use correct id from games table
                 return;
             }
         }
@@ -82,6 +84,13 @@ document.addEventListener('DOMContentLoaded', () => {
         clearInterval(timerInterval);  // Clear any existing timer interval
         startTimer();  // Start a new timer
         createBoard();
+    }
+
+    function sendResult(game_id, score) {
+        const formData = new FormData();
+        formData.append("score", score);
+        formData.append("game_id", game_id);
+        fetch("../php/save_score.php", {method: "POST", body: formData});
     }
 
     resetButton.addEventListener('click', resetGame);

@@ -2,6 +2,7 @@ const gameBoard = document.getElementById('game-board');
 const currentPlayerDisplay = document.getElementById('current-player');
 const statusMessage = document.getElementById('status-message');
 const resetButton = document.getElementById('reset');
+const timerDisplay = document.getElementById('timer');
 
 const ROWS = 6;
 const COLS = 7;
@@ -9,6 +10,8 @@ let board = [];
 let currentPlayer = 'red'; // 'red' (Player) or 'yellow' (Bot)
 let isGameActive = true;
 let isBotTurn = false; // Flag to prevent player clicking during bot turn
+let timer = 0;
+let timerInterval = null;
 
 function initGame() {
     board = [];
@@ -18,6 +21,9 @@ function initGame() {
     currentPlayer = 'red';
     updatePlayerDisplay();
     statusMessage.innerText = '';
+    timer = 0;
+    timerDisplay.textContent = timer;
+    startTimer();
 
     // Create board logic and UI
     for (let r = 0; r < ROWS; r++) {
@@ -173,6 +179,7 @@ function checkDraw() {
 
 function endGame(draw) {
     isGameActive = false;
+    stopTimer();
     if (draw) {
         statusMessage.innerText = "It's a Draw!";
         statusMessage.style.color = 'white';
@@ -180,11 +187,33 @@ function endGame(draw) {
         if (currentPlayer === 'red') {
             statusMessage.innerText = "You Win!";
             statusMessage.style.color = '#ff4757';
+            sendResult(5, timer);       // Must use correct id from games table
         } else {
             statusMessage.innerText = "Bot Wins!";
             statusMessage.style.color = '#ffa502';
         }
     }
+}
+
+function startTimer() {
+    if (timerInterval) clearInterval(timerInterval);
+
+    timerInterval = setInterval(() => {
+        timer++;
+        timerDisplay.textContent = timer;
+    }, 1000);
+}
+
+function stopTimer() {
+    clearInterval(timerInterval);
+    timerInterval = null;
+}
+
+function sendResult(game_id, score) {
+    const formData = new FormData();
+    formData.append("score", score);
+    formData.append("game_id", game_id);
+    fetch("../php/save_score.php", {method: "POST", body: formData});
 }
 
 resetButton.addEventListener('click', initGame);
