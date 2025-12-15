@@ -12,7 +12,7 @@
   <header class="header">
     <div class="logo"><img src="../../2222222.jpg" alt="Logo" height="30px"></div>
     <nav class="nav">
-      <a href="../index.html">Home</a>
+      <a href="../index.php">Home</a>
       <a href="../about.html">About</a>
       <a href="../login.php" class="login">Login</a>
     </nav>
@@ -49,5 +49,31 @@
             <button id="reset" onclick="location.reload()">Shuffle Board</button>
         </div>
     </div>
+    <button class="chatbot-button" onclick="toggleChat()">&#x1F4AC;</button>
+    
+    <div class="chat-window" id="chatWindow">
+        <div class="chat-header">Sliding Puzzle Bot</div>
+        <div class="chat-body" id="chatBody">
+            <div class="message bot">Select a hint!</div>
+        </div>
+        <div class="chat-buttons">
+            <button onclick="ask('s1')">Strategy 1</button>
+            <button onclick="ask('s2')">Strategy 2</button>
+            <button onclick="ask('f')">Fun Fact</button>
+        </div>
+    </div>
+    
+    <script>
+        const answers = {
+            s1: "Solve the puzzle row by row instead of moving pieces randomly.",
+            s2: "Minimize unnecessary moves to keep the board organized.",
+            f: "Sliding puzzles are based on the famous 15 Puzzle from the 1800s."
+        };
+
+        function toggleChat() { chatWindow.style.display = chatWindow.style.display === "flex" ? "none" : "flex"; }
+        function ask(k) { add("user", "Tell me"); setTimeout(() => add("bot", answers[k]), 300); }
+        function add(t, x) { const d = document.createElement("div"); d.className = "message " + t; d.innerText = x; chatBody.appendChild(d); }
+    </script>
+
 </body>
 </html>

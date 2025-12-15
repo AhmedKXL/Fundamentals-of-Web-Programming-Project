@@ -13,7 +13,7 @@
   <header class="header">
     <div class="logo"><img src="../../2222222.jpg" alt="Logo" height="30px"></div>
     <nav class="nav">
-      <a href="../index.html">Home</a>
+      <a href="../index.php">Home</a>
       <a href="../about.html">About</a>
       <a href="../login.php" class="login">Login</a>
     </nav>
@@ -50,5 +50,45 @@
             <button id="reset" onclick="location.reload()">Reset Game</button>
         </div>
     </div>
+    <button class="chatbot-button" onclick="toggleChat()">&#x1F4AC;</button>
+
+    <div class="chat-window" id="chatWindow">
+        <div class="chat-header">Tic Tac Toe Bot</div>
+        <div class="chat-body" id="chatBody">
+            <div class="message bot">Choose a tip below!</div>
+        </div>
+        <div class="chat-buttons">
+            <button onclick="ask('strategy1')">Strategy 1</button>
+            <button onclick="ask('strategy2')">Strategy 2</button>
+            <button onclick="ask('funfact')">Fun Fact</button>
+        </div>
+    </div>
+
+    <script>
+        const answers = {
+            strategy1: "Always start in the center or a corner to maximize winning chances.",
+            strategy2: "Block your opponent early to prevent forks and double threats.",
+            funfact: "If both players play perfectly, Tic Tac Toe always ends in a draw."
+        };
+
+        function toggleChat() {
+            const w = document.getElementById("chatWindow");
+            w.style.display = w.style.display === "flex" ? "none" : "flex";
+        }
+
+        function ask(key) {
+            addMsg("user", key.replace(/strategy|funfact/, "Info"));
+            setTimeout(() => addMsg("bot", answers[key]), 300);
+        }
+
+        function addMsg(type, text) {
+            const d = document.createElement("div");
+            d.className = "message " + type;
+            d.innerText = text;
+            chatBody.appendChild(d);
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+    </script>
+
 </body>
 </html>

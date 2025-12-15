@@ -12,7 +12,7 @@
   <header class="header">
     <div class="logo"><img src="../../2222222.jpg" alt="Logo" height="30px"></div>
     <nav class="nav">
-      <a href="../index.html">Home</a>
+      <a href="../index.php">Home</a>
       <a href="../about.html">About</a>
       <a href="../login.php" class="login">Login</a>
     </nav>
@@ -47,7 +47,30 @@
             </div>
             <button id="start-btn">Start Budgeting</button>
         </div>
+    </div><button class="chatbot-button" onclick="toggleChat()">&#x1F4AC;</button>
+    
+    <div class="chat-window" id="chatWindow">
+        <div class="chat-header">Finance Bot</div>
+        <div class="chat-body" id="chatBody">
+            <div class="message bot">Want financial tips?</div>
+        </div>
+        <div class="chat-buttons">
+            <button onclick="ask('b')">Budgeting</button>
+            <button onclick="ask('i')">Investing</button>
+            <button onclick="ask('f')">Fun Fact</button>
+        </div>
     </div>
+    
+    <script>
+        const answers = {
+            b: "Track expenses and spend less than you earn.",
+            i: "Diversifying investments reduces risk.",
+            f: "Gamified finance improves long term money habits."
+        };
+        function toggleChat() { chatWindow.style.display = chatWindow.style.display === "flex" ? "none" : "flex"; }
+        function ask(k) { add("user", "Tell me"); setTimeout(() => add("bot", answers[k]), 300); }
+        function add(t, x) { const d = document.createElement("div"); d.className = "message " + t; d.innerText = x; chatBody.appendChild(d); }
+    </script>
 
 </body>
 </html>
