@@ -7,7 +7,7 @@
     try{
         $conn = mysqli_connect($db_server, $db_user, $db_pass, $db_name);
     }
-    catch(mysqli_sql_exception){
-        echo "<script>alert('Could not connect! to database');</script>";
+    catch(mysqli_sql_exception $e){
+        echo "<script>alert('Could not connect to database! {$e->getMessage()}');</script>";
     }
 ?>

@@ -11,6 +11,7 @@ let nextDirection = { x: 0, y: 0 }; // Buffer to prevent self-collision on rapid
 let gameInterval;
 let score = 0;
 let isGameActive = false;
+let isGameOver = false;
 let gameSpeed = 150; // Milliseconds per frame
 
 function initGame() {
@@ -21,6 +22,7 @@ function initGame() {
     nextDirection = { x: 0, y: 0 };
     score = 0;
     isGameActive = false;
+    isGameOver = false;
     scoreElement.innerText = 0;
     statusMessage.innerText = "Press Arrow Keys to Start";
     statusMessage.style.color = "white";
@@ -71,6 +73,7 @@ function handleInput(e) {
         e.preventDefault();
     }
 
+    if (isGameOver) return;     // Block movement after loss
     if (!isGameActive && (e.key.includes('Arrow'))) {
         startGame();
     }
@@ -163,8 +166,17 @@ function draw() {
 function gameOver() {
     clearInterval(gameInterval);
     isGameActive = false;
+    isGameOver = true;
+    sendResult(2, score);       // Must use correct id from games table
     statusMessage.innerText = "Game Over!";
     statusMessage.style.color = "#ff4757";
+}
+
+function sendResult(game_id, score) {
+    const formData = new FormData();
+    formData.append("score", score);
+    formData.append("game_id", game_id);
+    fetch("../php/save_score.php", {method: "POST", body: formData});
 }
 
 resetButton.addEventListener('click', initGame);

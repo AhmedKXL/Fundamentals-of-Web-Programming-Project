@@ -14,7 +14,7 @@
     <nav class="nav">
       <a href="../index.html">Home</a>
       <a href="../about.html">About</a>
-      <a href="../login.html" class="login">Login</a>
+      <a href="../login.php" class="login">Login</a>
     </nav>
   </header>
 
@@ -23,8 +23,11 @@
             <div class="score your-score">
                 <span>Turn:</span>
                 <span id="current-player" class="player-red">You (Red)</span>
+                <br>
+                <span>Time:</span>
+                <span id="timer">0</span>
             </div>
-            <button id="go-back" onclick="history.back()">← Go Back</button>
+            <button id="go-back" onclick="history.back()">&larr; Go Back</button>
         </div>
 
         <div class="game-area">
@@ -42,28 +45,8 @@
                 <span class="player">Bot</span>
                 <span class="score">18 Wins</span>
             </div>
-            <button id="reset">Reset Game</button>
+            <button id="reset" onclick="location.reload()">Reset Game</button>
         </div>
     </div>
-
-  <footer class="footer">
-    <div class="footer-content">
-      <div class="footer-section links">
-        <h2>Quick Links</h2>
-        <ul>
-          <li><a href="../index.html">Home</a></li>
-          <li><a href="../login.html">Login</a></li>
-          <li><a href="../leaderboards.html">Leaderboard</a></li>
-        </ul>
-      </div>
-      <div class="footer-section contact">
-        <h2>Contact</h2>
-        <p>Email: support@gamershub.com</p>
-        <p>© 2025 GamersHub. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
-
-  <a href="#" class="to-top">↑</a>
 </body>
 </html>

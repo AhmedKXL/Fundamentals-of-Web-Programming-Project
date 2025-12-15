@@ -21,7 +21,7 @@ CREATE TABLE Accounts (
 );
 
 CREATE TABLE Users (
-    user_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT PRIMARY KEY NOT NULL,
     profile_picture VARCHAR(255) DEFAULT 'default.jpg', -- File name of the avatar image
     full_name VARCHAR(100) NOT NULL,
     gender ENUM('male', 'female', 'prefer_not_to_say') NOT NULL,
@@ -29,7 +29,7 @@ CREATE TABLE Users (
     email VARCHAR(100),
     phone_number VARCHAR(20),
     time_zone VARCHAR(10),
-    FOREIGN KEY (user_id) REFERENCES Accounts(user_id)
+    FOREIGN KEY (user_id) REFERENCES Accounts(user_id) ON DELETE CASCADE
 );
 
 CREATE TABLE Games (
@@ -38,13 +38,19 @@ CREATE TABLE Games (
 );
 
 CREATE TABLE Scores (
+    score_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
     game_id INT NOT NULL,
     score INT NOT NULL,
-    PRIMARY KEY (user_id, game_id),
-    FOREIGN KEY (user_id) REFERENCES Accounts(user_id),
-    FOREIGN KEY (game_id) REFERENCES Games(game_id)
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES Accounts(user_id) ON DELETE CASCADE,
+    FOREIGN KEY (game_id) REFERENCES Games(game_id) ON DELETE CASCADE
 );
 
-
-
+INSERT INTO games (game_id, name) VALUES
+(1, 'Tic-Tac-Toe'),
+(2, 'Snake'),
+(3, 'Neat Nine'),
+(4, 'Matching'),
+(5, 'Connect-4')
+ON DUPLICATE KEY UPDATE name = VALUES(name);

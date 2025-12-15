@@ -127,12 +127,18 @@ body {
 }
 
 .game-box {
-  background: #277254;
+  background: none;
   height: 192px;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
   font-size: 32px;
+  padding-bottom: 5px;
+}
+
+.game-box:hover {
+  transition: transform 0.3s ease;
+  transform: scale(1.1);
 }
 
 /* --- FUN FACTS --- */
@@ -229,11 +235,11 @@ body {
 
 .game-box {
   color: #fff;
-  text-shadow: 2px 2px 4px #000;
+  text-shadow: 4px 4px 8px #000;
   background-size: 500px;
   background-repeat: no-repeat;
   background-position: center;
-  background-size: cover;
+  background-size: contain;
   text-decoration: none;
 }
 
@@ -256,4 +262,18 @@ body {
 
 .snake {
   background-image: url("../images/snake.png");
+}
+
+/* --- GAME BOX SCROLL ANIMATION --- */
+.game-box {
+  opacity: 0;
+  transform: translateY(50px) rotate(-5deg);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  filter: grayscale(1);
+}
+
+.game-box.inView {
+  opacity: 1;
+  transform: translateY(0) rotate(0deg);
+  filter: grayscale(0);
 }

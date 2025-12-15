@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Tic Tac Toe Chatbot</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body { margin:0; font-family:Arial; background:#f9f9f9; }
+.chatbot-button { position:fixed; bottom:20px; left:20px; width:60px; height:60px; border-radius:50%; background:#0078D4; color:white; border:none; font-size:24px; cursor:pointer; }
+.chat-window { position:fixed; bottom:90px; left:20px; width:300px; height:420px; background:white; border-radius:10px; display:none; flex-direction:column; box-shadow:0 0 10px rgba(0,0,0,.2); }
+.chat-header { background:#0078D4; color:white; padding:10px; text-align:center; }
+.chat-body { flex:1; padding:10px; overflow-y:auto; }
+.message { margin:5px 0; padding:8px 12px; border-radius:15px; max-width:80%; }
+.bot { background:#e0e0e0; float:left; }
+.user { background:#0078D4; color:white; float:right; }
+.chat-buttons { padding:10px; border-top:1px solid #ccc; display:flex; gap:8px; flex-wrap:wrap; justify-content:center; }
+.chat-buttons button { background:#0078D4; color:white; border:none; padding:6px 10px; border-radius:5px; cursor:pointer; }
+</style>
+</head>
+<body>
+
+<button class="chatbot-button" onclick="toggleChat()">&#x1F4AC;</button>
+
+<div class="chat-window" id="chatWindow">
+  <div class="chat-header">Tic Tac Toe Bot</div>
+  <div class="chat-body" id="chatBody">
+    <div class="message bot">Choose a tip below!</div>
+  </div>
+  <div class="chat-buttons">
+    <button onclick="ask('strategy1')">Strategy 1</button>
+    <button onclick="ask('strategy2')">Strategy 2</button>
+    <button onclick="ask('funfact')">Fun Fact</button>
+  </div>
+</div>
+
+<script>
+const answers = {
+  strategy1: "Always start in the center or a corner to maximize winning chances.",
+  strategy2: "Block your opponent early to prevent forks and double threats.",
+  funfact: "If both players play perfectly, Tic Tac Toe always ends in a draw."
+};
+
+function toggleChat() {
+  const w = document.getElementById("chatWindow");
+  w.style.display = w.style.display === "flex" ? "none" : "flex";
+}
+
+function ask(key) {
+  addMsg("user", key.replace(/strategy|funfact/, "Info"));
+  setTimeout(() => addMsg("bot", answers[key]), 300);
+}
+
+function addMsg(type, text) {
+  const d = document.createElement("div");
+  d.className = "message " + type;
+  d.innerText = text;
+  chatBody.appendChild(d);
+  chatBody.scrollTop = chatBody.scrollHeight;
+}
+</script>
+</body>
+</html>

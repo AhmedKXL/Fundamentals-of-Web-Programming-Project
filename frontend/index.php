@@ -1,6 +1,6 @@
 <?php
   session_start();
-  include("connectToDB.php");
+  include("./php/connectToDB.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,10 +32,10 @@
       </div>
       <ul>
         <?php
-          $sql = "SELECT username, score FROM Accounts NATURAL JOIN Scores WHERE game_id=";   //need game id
+          $sql = "SELECT username, score FROM Accounts NATURAL JOIN Scores WHERE game_id=1";   //need game id
           $result = mysqli_query($conn, $sql);
           while($row = mysqli_fetch_assoc($result))
-            echo "<li><span>{$result['username']}</span><span>{$result['score']}</span></li>";
+            echo "<li><span>{$row['username']}</span><span>{$row['score']}</span></li>";
         ?>
         <li><span>Alcool69</span><span>99</span></li>
         <li><span>Alva123</span><span>80</span></li>
@@ -58,11 +58,34 @@
   <!-- Fun Facts -->
   <section class="fun-facts">
     <h3>Fun Facts</h3>
+    <h4>Tic Tac Toe</h4>
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac hendrerit elit. 
-      Curabitur vel sapien ac libero vulputate placerat. Donec vitae nunc nec enim vulputate faucibus. 
-      Cras gravida, lectus at ullamcorper bibendum, elit metus euismod ante, sit amet laoreet est mi at eros.
-      Suspendisse potenti. Donec vel mattis ligula.
+      Tic Tac Toe is one of the oldest known games, with versions found in ancient Egypt.
+      When played perfectly by both players, the game will always end in a draw.
+    </p>
+    <br>
+    <h4>Matching Game</h4>
+    <p>
+      Matching games are proven to improve memory and concentration skills.
+      They are often used as educational tools for young children and adults alike.
+    </p>
+    <br>
+    <h4>Connect Four</h4>
+    <p>
+      Connect Four has a solved strategy, meaning the first player can always win with the correct moves.
+      The game was first sold in 1974 and quickly became a classic.
+    </p>
+    <br>
+    <h4>Snake</h4>
+    <p>
+      The Snake game became famous after being preloaded on Nokia mobile phones in the late 1990s.
+      It helped introduce millions of people to video gaming.
+    </p>
+    <br>
+    <h4>Sliding Puzzle</h4>
+    <p>
+      Sliding puzzles date back to the 19th century and were once called the "15 Puzzle"
+      Solving them requires logical thinking and spatial awareness.
     </p>
   </section>
 
@@ -73,20 +96,44 @@
         <h2>Quick Links</h2>
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="login.html">Login</a></li>
-          <li><a href="leaderboards.html">Leaderboard</a></li>
+          <li><a href="login.php">Login</a></li>
         </ul>
       </div>
       <div class="footer-section contact">
         <h2>Contact</h2>
         <p>Email: support@gamershub.com</p>
-        <p>© 2025 GamersHub. All rights reserved.</p>
+        <p>&copy; 2025 GamersHub. All rights reserved.</p>
       </div>
     </div>
   </footer>
 
   <!-- To Top Button -->
-  <a href="#" class="to-top">↑</a>
+  <a href="#" class="to-top">&uarr;</a>
+
+  <!-- GAME BOX SCROLL ANIMATION SCRIPT -->
+  <script>
+    const gameBoxes = document.querySelectorAll(".game-box");
+
+    gameBoxes.forEach((box, index) => {
+      box.style.transitionDelay = `${index * 0.15}s`;
+    });
+
+    function fadeInGames() {
+      gameBoxes.forEach(box => {
+        const boxTop = box.getBoundingClientRect().top;
+        const triggerPoint = window.innerHeight - 100;
+
+        if (boxTop < triggerPoint) {
+          box.classList.add("inView");
+        } else {
+          box.classList.remove("inView");
+        }
+      });
+    }
+
+    window.addEventListener("scroll", fadeInGames);
+    fadeInGames(); // run on load
+  </script>
 
 </body>
 </html>

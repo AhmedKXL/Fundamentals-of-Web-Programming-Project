@@ -1,7 +1,7 @@
 <?php
     session_start();
-    include("connectToDB.php");
-    $sql = "SELECT * FROM Accounts NATURAL JOIN Scores NATURAL JOIN Users NATURAL JOIN Games WHERE user_id='{$_SESSION['user_id']}'";   //need game id
+    include("./php/connectToDB.php");
+    $sql = "SELECT * FROM Accounts NATURAL JOIN Users NATURAL JOIN Scores NATURAL JOIN Games WHERE user_id='{$_SESSION['user_id']}'";   //need game id
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);        
 ?>
@@ -118,14 +118,14 @@
               <h2>Quick Links</h2>
               <ul>
                   <li><a href="index.html">Home</a></li>
-                  <li><a href="login.html">Login</a></li>
+                  <li><a href="login.php">Login</a></li>
                   <li><a href="leaderboards.html">Leaderboard</a></li>
               </ul>
           </div>
           <div class="footer-section contact">
               <h2>Contact</h2>
               <p>Email: support@gamershub.com</p>
-              <p>© 2025 GamersHub. All rights reserved.</p>
+              <p>&copy; 2025 GamersHub. All rights reserved.</p>
           </div>
       </div>
   </footer>

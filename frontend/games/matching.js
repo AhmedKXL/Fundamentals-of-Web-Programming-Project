@@ -43,7 +43,7 @@ function checkForMatch() {
         resetCards();
         // Check if all pairs are matched
         if (matchedPairs === colors.length) {
-            gameOver(true); // Pass true for winning
+            gameOver();
         }
     } else {
         setTimeout(() => {
@@ -67,13 +67,17 @@ function updateScore() {
     document.getElementById('timer').textContent = `${score}`;
 }
 
-function gameOver(won) {
+function gameOver() {
     clearInterval(timer);
-    if (won) {
-        alert('Congratulations! You matched all pairs! Your time score: ' + score);
-    } else {
-        alert('Game Over! Your time score: ' + score);
-    }
+    sendResult(4, score);       // Must use correct id from games table
+    alert('Congratulations! You matched all pairs! Your time score: ' + score);
+}
+
+function sendResult(game_id, score) {
+    const formData = new FormData();
+    formData.append("score", score);
+    formData.append("game_id", game_id);
+    fetch("../php/save_score.php", {method: "POST", body: formData});
 }
 
 createBoard();

@@ -59,6 +59,11 @@
     cursor: pointer;
 }
 
+button:hover {
+  transition: transform 0.3s ease;
+  transform: scale(1.1);
+}
+
 #status-message {
     text-align: center;
     margin-top: 15px;
@@ -66,5 +71,5 @@
 }
 
 /* Player turn indicator styles */
-.player-red { color: #ff4757; font-weight: bold; }
-.player-yellow { color: #ffa502; font-weight: bold; }
+.player-red { color: #ff4757; font-weight: bold; width: 200px; display: inline-block;}
+.player-yellow { color: #ffa502; font-weight: bold; width: 200px; display: inline-block;}
