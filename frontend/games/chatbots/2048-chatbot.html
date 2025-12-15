@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>2048 Chatbot</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{margin:0;font-family:Arial;background:#f9f9f9}
+.chatbot-button{position:fixed;bottom:20px;left:20px;width:60px;height:60px;border-radius:50%;background:#edc22e;color:#000;border:none;font-size:24px;cursor:pointer}
+.chat-window{position:fixed;bottom:90px;left:20px;width:300px;height:420px;background:#fff;border-radius:10px;display:none;flex-direction:column;box-shadow:0 0 10px rgba(0,0,0,.2)}
+.chat-header{background:#edc22e;color:#000;padding:10px;text-align:center}
+.chat-body{flex:1;padding:10px;overflow-y:auto}
+.message{margin:5px 0;padding:8px 12px;border-radius:15px;max-width:80%}
+.bot{background:#e0e0e0;float:left}
+.user{background:#edc22e;color:#000;float:right}
+.chat-buttons{padding:10px;border-top:1px solid #ccc;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
+.chat-buttons button{background:#edc22e;border:none;padding:6px 10px;border-radius:5px;cursor:pointer}
+</style>
+</head>
+<body>
+
+<button class="chatbot-button" onclick="toggleChat()">💬</button>
+
+<div class="chat-window" id="chatWindow">
+  <div class="chat-header">2048 Bot</div>
+  <div class="chat-body" id="chatBody">
+    <div class="message bot">Need help reaching 2048?</div>
+  </div>
+  <div class="chat-buttons">
+    <button onclick="ask('t1')">Tip</button>
+    <button onclick="ask('t2')">Strategy</button>
+    <button onclick="ask('f')">Fun Fact</button>
+  </div>
+</div>
+
+<script>
+const answers={
+  t1:"Keep your highest tile in one corner.",
+  t2:"Avoid swiping randomly—plan your merges.",
+  f:"2048 was created in 2014 by a 19-year-old developer."
+};
+function toggleChat(){chatWindow.style.display=chatWindow.style.display==="flex"?"none":"flex";}
+function ask(k){add("user","Tell me");setTimeout(()=>add("bot",answers[k]),300);}
+function add(t,x){const d=document.createElement("div");d.className="message "+t;d.innerText=x;chatBody.appendChild(d);chatBody.scrollTop=chatBody.scrollHeight;}
+</script>
+
+</body>
+</html>

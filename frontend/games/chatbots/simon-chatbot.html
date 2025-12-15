@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Simon Says Chatbot</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{margin:0;font-family:Arial}
+.chatbot-button{position:fixed;bottom:20px;left:20px;width:60px;height:60px;border-radius:50%;background:#ff4757;color:#fff;border:none;font-size:24px}
+.chat-window{position:fixed;bottom:90px;left:20px;width:300px;height:420px;background:#fff;border-radius:10px;display:none;flex-direction:column;box-shadow:0 0 10px rgba(0,0,0,.2)}
+.chat-header{background:#ff4757;color:#fff;padding:10px;text-align:center}
+.chat-body{flex:1;padding:10px;overflow-y:auto}
+.message{margin:5px 0;padding:8px 12px;border-radius:15px}
+.bot{background:#e0e0e0;float:left}
+.user{background:#ff4757;color:#fff;float:right}
+.chat-buttons{padding:10px;border-top:1px solid #ccc;display:flex;gap:8px;justify-content:center}
+.chat-buttons button{background:#ff4757;color:#fff;border:none;padding:6px 10px;border-radius:5px}
+</style>
+</head>
+<body>
+
+<button class="chatbot-button" onclick="toggleChat()">💬</button>
+
+<div class="chat-window" id="chatWindow">
+  <div class="chat-header">Simon Bot</div>
+  <div class="chat-body" id="chatBody">
+    <div class="message bot">Test your memory!</div>
+  </div>
+  <div class="chat-buttons">
+    <button onclick="ask('m')">Memory Tip</button>
+    <button onclick="ask('r')">Reaction Tip</button>
+    <button onclick="ask('f')">Fun Fact</button>
+  </div>
+</div>
+
+<script>
+const answers={
+  m:"Group colors into patterns to remember longer.",
+  r:"Stay calm—speed increases gradually.",
+  f:"The original Simon game was released in 1978."
+};
+function toggleChat(){chatWindow.style.display=chatWindow.style.display==="flex"?"none":"flex";}
+function ask(k){add("user","Tell me");setTimeout(()=>add("bot",answers[k]),300);}
+function add(t,x){const d=document.createElement("div");d.className="message "+t;d.innerText=x;chatBody.appendChild(d);}
+</script>
+
+</body>
+</html>
