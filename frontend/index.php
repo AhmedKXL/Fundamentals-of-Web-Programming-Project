@@ -48,50 +48,84 @@
 
   <!-- Games Section -->
   <section class="games">
-    <a href="./games/tictactoe.html" class="game-box tictactoe">Tic-Tac-Toe</a>
-    <a href="./games/matching.html" class="game-box matching">Matching</a>
-    <a href="./games/connect4.html" class="game-box connect4">Connect-4</a>
-    <a href="./games/snake.html" class="game-box snake">Snake</a>
-    <a href="./games/neatnine.html" class="game-box neat9">Neat Nine</a>
-    <a href="./games/2048.html" class="game-box snake">2048</a>
-    <a href="./games/finance.html" class="game-box snake">Finance!</a>
-    <a href="./games/minesweeper.html" class="game-box snake">Mine Sweeper</a>
-    <a href="./games/simon.html" class="game-box snake">Simon Says</a>
+    <a href="./games/tictactoe.html" class="game-box tictactoe"><span class="game-box-inner">Tic-Tac-Toe</span></a>
+    <a href="./games/matching.html" class="game-box matching"><span class="game-box-inner">Matching</span></a>
+    <a href="./games/connect4.html" class="game-box connect4"><span class="game-box-inner">Connect-4</span></a>
+    <a href="./games/snake.html" class="game-box snake"><span class="game-box-inner">Snake</span></a>
+    <a href="./games/neatnine.html" class="game-box neat9"><span class="game-box-inner">Neat Nine</span></a>
+    <a href="./games/2048.html" class="game-box snake"><span class="game-box-inner">2048</span></a> <!-- change snake with game name class -->
+    <a href="./games/finance.html" class="game-box snake"><span class="game-box-inner">Finance!</span></a>
+    <a href="./games/minesweeper.html" class="game-box snake"><span class="game-box-inner">Mine Sweeper</span></a>
+    <a href="./games/simon.html" class="game-box snake"><span class="game-box-inner">Simon Says</span></a>
   </section>
 
   <!-- Fun Facts -->
   <section class="fun-facts">
     <h3>Fun Facts</h3>
+
     <h4>Tic Tac Toe</h4>
     <p>
       Tic Tac Toe is one of the oldest known games, with versions found in ancient Egypt.
       When played perfectly by both players, the game will always end in a draw.
     </p>
     <br>
+
     <h4>Matching Game</h4>
     <p>
       Matching games are proven to improve memory and concentration skills.
       They are often used as educational tools for young children and adults alike.
     </p>
     <br>
+
     <h4>Connect Four</h4>
     <p>
       Connect Four has a solved strategy, meaning the first player can always win with the correct moves.
       The game was first sold in 1974 and quickly became a classic.
     </p>
     <br>
+
     <h4>Snake</h4>
     <p>
       The Snake game became famous after being preloaded on Nokia mobile phones in the late 1990s.
       It helped introduce millions of people to video gaming.
     </p>
     <br>
-    <h4>Sliding Puzzle</h4>
+
+    <h4>Neat Nine</h4>
     <p>
-      Sliding puzzles date back to the 19th century and were once called the "15 Puzzle"
-      Solving them requires logical thinking and spatial awareness.
+      Neat Nine is a strategy-based number game that challenges players to think ahead and plan efficiently.
+      Games like this improve logical reasoning and pattern recognition skills.
+    </p>
+    <br>
+
+    <h4>2048</h4>
+    <p>
+      2048 was created by a 19-year-old developer in just one weekend.
+      The game went viral worldwide and inspired countless variations and clones.
+    </p>
+    <br>
+
+    <h4>Finance!</h4>
+    <p>
+      Finance-based games help players understand budgeting, investing, and risk management in a fun way.
+      Studies show that gamified learning improves long-term financial literacy.
+    </p>
+    <br>
+
+    <h4>Minesweeper</h4>
+    <p>
+      Minesweeper was included with early versions of Windows to help users learn mouse control.
+      Despite its simple look, the game requires deep logical thinking and probability skills.
+    </p>
+    <br>
+
+    <h4>Simon Says</h4>
+    <p>
+      Simon Says tests memory, reaction time, and focus by challenging players to repeat growing patterns.
+      The original electronic Simon game was released in 1978 and became an instant hit.
     </p>
   </section>
+
 
   <!-- Footer -->
   <footer class="footer">

@@ -136,11 +136,6 @@ body {
   padding-bottom: 5px;
 }
 
-.game-box:hover {
-  transition: transform 0.3s ease;
-  transform: scale(1.1);
-}
-
 /* --- FUN FACTS --- */
 .fun-facts {
   width: 980px;
@@ -263,6 +258,7 @@ body {
 .snake {
   background-image: url("../images/snake.png");
 }
+/* add other games images */
 
 /* --- GAME BOX SCROLL ANIMATION --- */
 .game-box {
@@ -276,4 +272,18 @@ body {
   opacity: 1;
   transform: translateY(0) rotate(0deg);
   filter: grayscale(0);
+}
+
+/* --- GAME BOX HOVER ANIMATION --- */
+.game-box-inner {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 100%;
+  width: 100%;
+  transition: transform 0.3s ease;
+}
+
+.game-box:hover .game-box-inner {
+  transform: scale(1.1);
 }
