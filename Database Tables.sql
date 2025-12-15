@@ -29,7 +29,7 @@ CREATE TABLE Users (
     email VARCHAR(100),
     phone_number VARCHAR(20),
     time_zone VARCHAR(10),
-    FOREIGN KEY (user_id) REFERENCES Accounts(user_id)
+    FOREIGN KEY (user_id) REFERENCES Accounts(user_id) ON DELETE CASCADE
 );
 
 CREATE TABLE Games (
@@ -43,6 +43,14 @@ CREATE TABLE Scores (
     game_id INT NOT NULL,
     score INT NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    FOREIGN KEY (user_id) REFERENCES Accounts(user_id),
-    FOREIGN KEY (game_id) REFERENCES Games(game_id)
+    FOREIGN KEY (user_id) REFERENCES Accounts(user_id) ON DELETE CASCADE,
+    FOREIGN KEY (game_id) REFERENCES Games(game_id) ON DELETE CASCADE
 );
+
+INSERT INTO games (game_id, name) VALUES
+(1, 'Tic-Tac-Toe'),
+(2, 'Snake'),
+(3, 'Neat Nine'),
+(4, 'Matching'),
+(5, 'Connect-4')
+ON DUPLICATE KEY UPDATE name = VALUES(name);
