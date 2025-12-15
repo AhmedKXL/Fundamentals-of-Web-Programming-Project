@@ -28,11 +28,23 @@ body {
 }
 
 .logo {
-  background: #d9d9d9;
-  color: #000;
-  padding: 10px 20px;
-  font-size: 24px;
-  font-weight: 500;
+  background-image: url('../other_images/logo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 150px;
+  height: 70px;
+  
+  /* Blend effect */
+  background-color: rgba(255, 255, 255, 0.05); /* subtle overlay */
+  border-radius: 4px; /* soften corners */
+  padding: 2px 4px;   /* small padding so gradient shows around logo */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3); /* subtle glow effect */
 }
 
 .nav {
@@ -87,6 +99,7 @@ body {
   border-radius: 5px;
   padding: 30px;
   width: 400px;
+  z-index: 555;
 }
 
 .leaderboard h2 {
@@ -240,23 +253,23 @@ body {
 
 
 .tictactoe {
-  background-image: url("../images/tictactoe.png");
+  background-image: url("../images/1_tictactoe.png");
 }
 
 .matching {
-  background-image: url("../images/matching.png");
+  background-image: url("../images/4_matching.png");
 }
 
 .connect4 {
-  background-image: url("../images/connect4.png");
+  background-image: url("../images/5_connect4.png");
 }
 
 .neat9 {
-  background-image: url("../images/neat9.png");
+  background-image: url("../images/3_neat9.png");
 }
 
 .snake {
-  background-image: url("../images/snake.png");
+  background-image: url("../images/2_snake.png");
 }
 /* add other games images */
 
@@ -287,3 +300,46 @@ body {
 .game-box:hover .game-box-inner {
   transform: scale(1.1);
 }
+
+/* carousel */
+.carousel {
+  position: relative;
+  width: 1065px;
+  height: 599px;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.carousel-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.carousel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.6);
+  color: white;
+  border: none;
+  font-size: 30px;
+  padding: 10px 15px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.carousel-btn.prev { left: 10px; }
+.carousel-btn.next { right: 10px; }

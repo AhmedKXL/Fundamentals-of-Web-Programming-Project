@@ -1,6 +1,8 @@
 <?php
   session_start();
   include("./php/connectToDB.php");
+  $images = glob("./images/*.png"); // or *.jpg if needed
+  sort($images); // important: ensures stable index order
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +16,7 @@
 
   <!-- Header -->
   <header class="header">
-    <div class="logo"><img src="../../2222222.jpg" alt="Logo" height="30px"></div>
+    <div class="logo"></div>
     <nav class="nav">
       <a href="about.html">About</a>
       <?php echo (isset($_SESSION['user_id']) ? "<a href=\"./php/logout.php\" class=\"login\">Logout</a>" : "<a href=\"./login.php\" class=\"login\">Login</a>") ?>
@@ -23,28 +25,39 @@
 
   <!-- Hero with Leaderboard -->
   <section class="hero">
-    <img src="../../2222222.jpg" alt="Car background" class="hero-bg">
-    <div class="leaderboard">
-      <h2>Leaderboard</h2>
-      <div class="leaderboard-header">
-        <span>Player</span>
-        <span>Score</span>
-      </div>
-      <ul>
-        <?php
-          $sql = "SELECT username, MAX(score) as score FROM Accounts NATURAL JOIN Scores WHERE game_id=2 GROUP BY user_id ORDER BY MAX(score)";   //need game id
-          $result = mysqli_query($conn, $sql);
-          while($row = mysqli_fetch_assoc($result))
-            echo "<li><span>{$row['username']}</span><span>{$row['score']}</span></li>";
+  <div class="carousel"><?php
+foreach ($images as $img) {
+    $filename = basename($img);
+    if (preg_match('/^(\d+)_/', $filename, $matches)) {
+        $game_id = (int)$matches[1];
         ?>
-        <li><span>Alcool69</span><span>99</span></li>
-        <li><span>Alva123</span><span>80</span></li>
-        <li><span>Player3</span><span>79</span></li>
-        <li><span>Ahmad04</span><span>12</span></li>
-        <li><span>BandieraX</span><span>5</span></li>
-      </ul>
+        <a href="?game_id=<?= $game_id ?>"
+           class="carousel-slide"
+           data-game-id="<?= $game_id ?>">
+          <img src="<?= $img ?>" alt="Game <?= $game_id ?>">
+        </a>
+        <?php
+    }
+}
+?>
+
+
+
+    <button class="carousel-btn prev">&#10094;</button>
+    <button class="carousel-btn next">&#10095;</button>
+  </div>
+
+  <div class="leaderboard">
+    <h2>Leaderboard</h2>
+    <div class="leaderboard-header">
+      <span>Player</span>
+      <span>Score</span>
     </div>
-  </section>
+    <ul id="leaderboard-list">
+    </ul>
+  </div>
+</section>
+
 
   <!-- Games Section -->
   <section class="games">
@@ -172,6 +185,53 @@
     window.addEventListener("scroll", fadeInGames);
     fadeInGames(); // run on load
   </script>
+  <script>
+  const slides = document.querySelectorAll('.carousel-slide');
+  const prev = document.querySelector('.prev');
+  const next = document.querySelector('.next');
+  const leaderboard = document.getElementById('leaderboard-list');
+
+  let currentIndex = 0;
+
+  function loadLeaderboard(game_id) {
+    fetch(`./php/getLeaderboard.php?game_id=${game_id}`)
+      .then(res => res.text())
+      .then(html => leaderboard.innerHTML = html);
+  }
+
+  function showSlide(index) {
+    slides.forEach(slide => slide.classList.remove('active'));
+
+    currentIndex = index;
+    const slide = slides[currentIndex];
+    slide.classList.add('active');
+
+    const game_id = slide.dataset.gameId;
+
+    history.replaceState(null, '', '?game_id=' + game_id);
+    loadLeaderboard(game_id);
+  }
+
+  prev.addEventListener('click', () => {
+    showSlide((currentIndex - 1 + slides.length) % slides.length);
+  });
+
+  next.addEventListener('click', () => {
+    showSlide((currentIndex + 1) % slides.length);
+  });
+
+  // 🔥 Initial load (sync with URL if present)
+  const urlGameId = new URLSearchParams(window.location.search).get('game_id');
+
+  if (urlGameId) {
+    const startIndex = [...slides].findIndex(
+      s => s.dataset.gameId === urlGameId
+    );
+    if (startIndex !== -1) currentIndex = startIndex;
+  }
+
+  showSlide(currentIndex);
+</script>
 
 </body>
 </html>
