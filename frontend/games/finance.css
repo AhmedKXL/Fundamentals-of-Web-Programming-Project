@@ -1,0 +1,82 @@
+#game-board {
+    display: grid;
+    width: 100%;
+    max-width: 500px;
+    aspect-ratio: 1;
+    /* 4x4 Grid */
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 10px;
+    margin: 0 auto;
+}
+
+.cell {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid #fff;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5em;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.1s, background-color 0.2s;
+}
+
+.cell:active {
+    transform: scale(0.95);
+}
+
+/* --- ITEM TYPES --- */
+
+/* Income: Earning Money (Good to click) */
+.cell.income {
+    background-color: #2ed573; /* Green */
+    border-color: #7bed9f;
+}
+
+/* Bill: Mandatory Expense (Must click or penalty) */
+.cell.bill {
+    background-color: #ff4757; /* Red */
+    border-color: #ff6b81;
+    animation: pulse 1s infinite; /* Urgency effect */
+}
+
+/* Luxury: Impulse Buy (Do NOT click) */
+.cell.luxury {
+    background-color: #a55eea; /* Purple */
+    border-color: #d1d8e0;
+}
+
+/* Expired Bill (Visual feedback for missed payment) */
+.cell.expired {
+    background-color: #2f3542;
+    border-color: #ff4757;
+    color: #ff4757;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+#status-message {
+    text-align: center;
+    margin-top: 15px;
+    min-height: 1.5em;
+    color: #fff;
+    font-weight: bold;
+}
+
+#savings-display {
+    color: #2ed573; /* Money Green */
+    font-weight: bold;
+}
+
+#start-btn {
+    margin-top: 20px;
+    color: black;
+    padding: 0.5em 1em;
+    cursor: pointer;
+}
