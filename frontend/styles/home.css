@@ -263,3 +263,17 @@ body {
 .snake {
   background-image: url("../images/snake.png");
 }
+
+/* --- GAME BOX SCROLL ANIMATION --- */
+.game-box {
+  opacity: 0;
+  transform: translateY(50px) rotate(-5deg);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  filter: grayscale(1);
+}
+
+.game-box.inView {
+  opacity: 1;
+  transform: translateY(0) rotate(0deg);
+  filter: grayscale(0);
+}

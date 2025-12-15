@@ -87,6 +87,31 @@
   <!-- To Top Button -->
   <a href="#" class="to-top">&uarr;</a>
 
+  <!-- GAME BOX SCROLL ANIMATION SCRIPT -->
+  <script>
+    const gameBoxes = document.querySelectorAll(".game-box");
+
+    gameBoxes.forEach((box, index) => {
+      box.style.transitionDelay = `${index * 0.15}s`;
+    });
+
+    function fadeInGames() {
+      gameBoxes.forEach(box => {
+        const boxTop = box.getBoundingClientRect().top;
+        const triggerPoint = window.innerHeight - 100;
+
+        if (boxTop < triggerPoint) {
+          box.classList.add("inView");
+        } else {
+          box.classList.remove("inView");
+        }
+      });
+    }
+
+    window.addEventListener("scroll", fadeInGames);
+    fadeInGames(); // run on load
+  </script>
+
 </body>
 </html>
 <?php 
