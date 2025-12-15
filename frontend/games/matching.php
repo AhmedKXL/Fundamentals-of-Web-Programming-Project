@@ -17,7 +17,7 @@
 <body>
   <!-- Header -->
   <header class="header">
-    <div class="logo"><img src="../../2222222.jpg" alt="Logo" height="30px"></div>
+    <div class="logo"></div>
     <nav class="nav">
       <a href="../index.php">Home</a>
       <a href="../about.html">About</a>

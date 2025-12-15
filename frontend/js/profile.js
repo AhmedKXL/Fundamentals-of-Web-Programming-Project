@@ -2,39 +2,33 @@ document.addEventListener('DOMContentLoaded', () => {
     const editButton = document.querySelector('.edit-profile');
     const inputs = document.querySelectorAll('.input-field');
 
-    editButton.addEventListener('click', function () {
-        const isEditing = this.textContent === 'Confirm Edits';
-        
-        // Toggle input fields
-        inputs.forEach(input => {
-            input.disabled = !isEditing;
-        });
-        
-        if (isEditing) {
-            // Change button text back to 'Edit Profile'
-            this.textContent = 'Edit Profile';
-            
-            // Create a FormData object for sending data
+    let editing = false;
+
+    editButton.addEventListener('click', () => {
+        if (!editing) {
+            // Enable editing
+            inputs.forEach(input => input.disabled = false);
+            editButton.textContent = 'Save Changes';
+            editing = true;
+        } else {
+            // Collect data BEFORE disabling
             const formData = new FormData();
             inputs.forEach(input => {
-                if (!input.disabled) {
-                    formData.append(input.id, input.value);
-                }
+                formData.append(input.name, input.value);
             });
 
-            // Send data to PHP script
-            fetch('saveProfile.php', {
+            fetch('../php/update_profile.php', {
                 method: 'POST',
-                body: formData,
+                body: formData
             })
-            .then(response => response.text())
-            .then(data => {
-                alert(data); // Display any response from the server
+            .then(res => res.text())
+            .then(msg => {
+                alert(msg);
+                inputs.forEach(input => input.disabled = true);
+                editButton.textContent = 'Edit Profile';
+                editing = false;
             })
-            .catch(error => console.error('Error:', error));
-        } else {
-            // Change button text to 'Confirm Edits'
-            this.textContent = 'Confirm Edits';
+            .catch(err => console.error(err));
         }
     });
 });
