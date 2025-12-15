@@ -1,6 +1,6 @@
 <?php
   session_start();
-  include("connectToDB.php");
+  include("./php/connectToDB.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,7 +32,7 @@
       </div>
       <ul>
         <?php
-          $sql = "SELECT username, score FROM Accounts NATURAL JOIN Scores WHERE game_id=";   //need game id
+          $sql = "SELECT username, score FROM Accounts NATURAL JOIN Scores WHERE game_id=1";   //need game id
           $result = mysqli_query($conn, $sql);
           while($row = mysqli_fetch_assoc($result))
             echo "<li><span>{$result['username']}</span><span>{$result['score']}</span></li>";

@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include("connectToDB.php");
+    include("./php/connectToDB.php");
     $sql = "SELECT * FROM Accounts NATURAL JOIN Scores NATURAL JOIN Users NATURAL JOIN Games WHERE user_id='{$_SESSION['user_id']}'";   //need game id
     $result = mysqli_query($conn, $sql);
     $row = mysqli_fetch_assoc($result);        
