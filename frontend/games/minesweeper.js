@@ -202,6 +202,7 @@ function endGame(isWin, clickedBombId) {
     if (isWin) {
         statusMessage.innerText = "YOU WON! 🎉";
         statusMessage.style.color = "#2ed573";
+        sendResult(8, time);
     } else {
         statusMessage.innerText = "GAME OVER 💥";
         statusMessage.style.color = "#ff4757";
@@ -210,6 +211,13 @@ function endGame(isWin, clickedBombId) {
              gameBoard.children[clickedBombId].style.backgroundColor = "darkred";
         }
     }
+}
+
+function sendResult(game_id, score) {
+    const formData = new FormData();
+    formData.append("score", score);
+    formData.append("game_id", game_id);
+    fetch("../php/save_score.php", {method: "POST", body: formData});
 }
 
 resetButton.addEventListener('click', initGame);

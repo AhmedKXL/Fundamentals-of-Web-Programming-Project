@@ -162,9 +162,10 @@ function checkGameOver() {
     for (let r = 0; r < SIZE; r++) {
         for (let c = 0; c < SIZE; c++) {
             if (board[r][c] === 2048) {
+                isGameActive = false;
+                sendResult(6, score);
                 statusMessage.innerText = "You Won! (Press Reset)";
                 statusMessage.style.color = "#2ed573";
-                // We keep playing usually, but you can stop here
             }
         }
     }
@@ -179,6 +180,7 @@ function checkGameOver() {
         // Check if any merges are possible
         if (!canMove()) {
             isGameActive = false;
+            sendResult(6, score);
             statusMessage.innerText = "Game Over!";
             statusMessage.style.color = "#ff4757";
         }
@@ -196,6 +198,13 @@ function canMove() {
         }
     }
     return false;
+}
+
+function sendResult(game_id, score) {
+    const formData = new FormData();
+    formData.append("score", score);
+    formData.append("game_id", game_id);
+    fetch("../php/save_score.php", {method: "POST", body: formData});
 }
 
 resetButton.addEventListener('click', initGame);

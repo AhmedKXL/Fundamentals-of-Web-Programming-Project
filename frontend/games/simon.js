@@ -105,7 +105,7 @@ function gameOver() {
     isGameActive = false;
     statusMessage.innerText = "Game Over!";
     statusMessage.style.color = "#ff4757";
-    
+    sendResult(9, level);
     // Flash background red
     document.body.style.backgroundColor = "#500";
     setTimeout(() => {
@@ -113,6 +113,13 @@ function gameOver() {
     }, 200);
 
     startButton.innerText = "Try Again";
+}
+
+function sendResult(game_id, score) {
+    const formData = new FormData();
+    formData.append("score", score);
+    formData.append("game_id", game_id);
+    fetch("../php/save_score.php", {method: "POST", body: formData});
 }
 
 // Event Listeners

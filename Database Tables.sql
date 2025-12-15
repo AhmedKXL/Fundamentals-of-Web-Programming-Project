@@ -52,5 +52,9 @@ INSERT INTO games (game_id, name) VALUES
 (2, 'Snake'),
 (3, 'Neat Nine'),
 (4, 'Matching'),
-(5, 'Connect-4')
+(5, 'Connect-4'),
+(6, '2048'),
+(7, 'Finance!'),
+(8, 'Mine Sweeper'),
+(9, 'Simon Says')
 ON DUPLICATE KEY UPDATE name = VALUES(name);

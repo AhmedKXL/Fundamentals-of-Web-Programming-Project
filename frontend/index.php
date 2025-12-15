@@ -53,6 +53,10 @@
     <a href="./games/connect4.html" class="game-box connect4">Connect-4</a>
     <a href="./games/snake.html" class="game-box snake">Snake</a>
     <a href="./games/neatnine.html" class="game-box neat9">Neat Nine</a>
+    <a href="./games/2048.html" class="game-box snake">2048</a>
+    <a href="./games/finance.html" class="game-box snake">Finance!</a>
+    <a href="./games/minesweeper.html" class="game-box snake">Mine Sweeper</a>
+    <a href="./games/simon.html" class="game-box snake">Simon Says</a>
   </section>
 
   <!-- Fun Facts -->

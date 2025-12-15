@@ -22,7 +22,7 @@ const ITEMS = {
 function initGame() {
     createBoard();
     resetStats();
-    statusMessage.innerText = "Earn Income, Pay Bills, Ignore Luxuries!";
+    statusMessage.innerHTML = "Earn Income, Pay Bills, Ignore Luxuries!<br>Click on the start button on the right to begin";
     statusMessage.style.color = "white";
     startButton.innerText = "Start Budgeting";
     startButton.onclick = startGame;
@@ -189,11 +189,19 @@ function endGame(timeUp) {
 
     if (timeUp) {
         statusMessage.innerText = `Time's Up! Final Savings: $${savings}`;
+        sendResult(7, savings);
     } else {
         statusMessage.innerText = "Bankruptcy! Game Over.";
     }
     
     startButton.innerText = "Try Again";
+}
+
+function sendResult(game_id, score) {
+    const formData = new FormData();
+    formData.append("score", score);
+    formData.append("game_id", game_id);
+    fetch("../php/save_score.php", {method: "POST", body: formData});
 }
 
 // Initialize
