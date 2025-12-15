@@ -35,7 +35,7 @@
           $sql = "SELECT username, score FROM Accounts NATURAL JOIN Scores WHERE game_id=1";   //need game id
           $result = mysqli_query($conn, $sql);
           while($row = mysqli_fetch_assoc($result))
-            echo "<li><span>{$result['username']}</span><span>{$result['score']}</span></li>";
+            echo "<li><span>{$row['username']}</span><span>{$row['score']}</span></li>";
         ?>
         <li><span>Alcool69</span><span>99</span></li>
         <li><span>Alva123</span><span>80</span></li>
@@ -73,20 +73,19 @@
         <h2>Quick Links</h2>
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="login.html">Login</a></li>
-          <li><a href="leaderboards.html">Leaderboard</a></li>
+          <li><a href="login.php">Login</a></li>
         </ul>
       </div>
       <div class="footer-section contact">
         <h2>Contact</h2>
         <p>Email: support@gamershub.com</p>
-        <p>© 2025 GamersHub. All rights reserved.</p>
+        <p>&copy; 2025 GamersHub. All rights reserved.</p>
       </div>
     </div>
   </footer>
 
   <!-- To Top Button -->
-  <a href="#" class="to-top">↑</a>
+  <a href="#" class="to-top">&uarr;</a>
 
 </body>
 </html>

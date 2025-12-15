@@ -21,7 +21,7 @@ CREATE TABLE Accounts (
 );
 
 CREATE TABLE Users (
-    user_id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT PRIMARY KEY NOT NULL,
     profile_picture VARCHAR(255) DEFAULT 'default.jpg', -- File name of the avatar image
     full_name VARCHAR(100) NOT NULL,
     gender ENUM('male', 'female', 'prefer_not_to_say') NOT NULL,
@@ -38,13 +38,11 @@ CREATE TABLE Games (
 );
 
 CREATE TABLE Scores (
+    score_id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
     game_id INT NOT NULL,
     score INT NOT NULL,
-    PRIMARY KEY (user_id, game_id),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES Accounts(user_id),
     FOREIGN KEY (game_id) REFERENCES Games(game_id)
 );
-
-
-
