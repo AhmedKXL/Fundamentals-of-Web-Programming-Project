@@ -52,7 +52,7 @@
     <a href="./games/matching.html" class="game-box matching">Matching</a>
     <a href="./games/connect4.html" class="game-box connect4">Connect-4</a>
     <a href="./games/snake.html" class="game-box snake">Snake</a>
-    <a href="./games/lightsOut.html" class="game-box neat9">Neat Nine</a>
+    <a href="./games/lightsOut.html" class="game-box neat9">lights Out</a>
   </section>
 
   <!-- Fun Facts -->

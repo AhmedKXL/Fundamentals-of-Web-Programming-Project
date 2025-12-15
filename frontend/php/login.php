@@ -1,5 +1,5 @@
 <?php
-  session_start();      // use in all html (pages)
+    session_start();      // use in all html (pages)
 ?>
 <?php
     include("connectToDB.php");
