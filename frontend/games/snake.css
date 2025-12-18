@@ -24,6 +24,7 @@
 /* Snake Body - Using !important to force visibility */
 #game-board .cell.snake {
     background-color: #2ed573 !important; /* Bright Green */
+    background-image: none;
     box-shadow: 0 0 5px #2ed573;
     z-index: 10;
 }

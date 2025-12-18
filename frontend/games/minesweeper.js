@@ -117,7 +117,7 @@ function addFlag(cell) {
         if (flags < BOMB_COUNT) {
             board[id].isFlagged = true;
             cell.classList.add('flagged');
-            cell.innerText = '🚩';
+            cell.innerHTML = '&#x1F6A9;';
             flags++;
         }
     } else {
@@ -193,18 +193,18 @@ function endGame(isWin, clickedBombId) {
     board.forEach((data, index) => {
         if (data.isBomb) {
             const cell = gameBoard.children[index];
-            cell.innerText = '💣';
+            cell.innerHTML = '&#x1F4A3;';
             cell.classList.remove('covered', 'flagged');
             cell.classList.add('mine');
         }
     });
 
     if (isWin) {
-        statusMessage.innerText = "YOU WON! 🎉";
+        statusMessage.innerHTML = "YOU WON! &#x1F389;";
         statusMessage.style.color = "#2ed573";
         sendResult(8, time);
     } else {
-        statusMessage.innerText = "GAME OVER 💥";
+        statusMessage.innerHTML = "GAME OVER &#x1F4A5;";
         statusMessage.style.color = "#ff4757";
         // Highlight the one that killed you
         if (clickedBombId !== undefined) {

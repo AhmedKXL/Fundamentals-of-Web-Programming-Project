@@ -271,7 +271,22 @@ body {
 .snake {
   background-image: url("../images/2_snake.png");
 }
-/* add other games images */
+
+.finance {
+  background-image: url("../images/7_finance.png");
+}
+
+.minesweeper {
+  background-image: url("../images/8_minesweeper.png");
+}
+
+.simon {
+  background-image: url("../images/9_simon.png");
+}
+
+.game2048 {
+  background-image: url("../images/6_2048.png");
+}
 
 /* --- GAME BOX SCROLL ANIMATION --- */
 .game-box {

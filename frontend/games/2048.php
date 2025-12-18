@@ -47,14 +47,6 @@
                             <span class=\"score\">{$row['score']}</span>
                         </div>";
             ?>
-            <div class="leaderboard-entry">
-                <span class="player">MathWhiz</span>
-                <span class="score">4096</span>
-            </div>
-            <div class="leaderboard-entry">
-                <span class="player">Slider</span>
-                <span class="score">2048</span>
-            </div>
             <button id="reset">New Game</button>
         </div>
     </div>

@@ -47,17 +47,9 @@
                 while($row = mysqli_fetch_assoc($result))
                     echo "<div class=\"leaderboard-entry\">
                             <span class=\"player\">{$row['username']}</span>
-                            <span class=\"score\">{$row['score']}</span>
+                            <span class=\"score\">{$row['score']} sec</span>
                         </div>";
             ?>
-            <div class="leaderboard-entry">
-                <span class="player">You</span>
-                <span class="score">22 Wins</span>
-            </div>
-            <div class="leaderboard-entry">
-                <span class="player">Bot</span>
-                <span class="score">18 Wins</span>
-            </div>
             <button id="reset" onclick="location.reload()">Reset Game</button>
         </div>
     </div>

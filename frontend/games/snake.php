@@ -47,18 +47,6 @@
                             <span class=\"score\">{$row['score']}</span>
                         </div>";
             ?>
-            <div class="leaderboard-entry">
-                <span class="player">PythonMaster</span>
-                <span class="score">45 pts</span>
-            </div>
-            <div class="leaderboard-entry">
-                <span class="player">Viper</span>
-                <span class="score">32 pts</span>
-            </div>
-            <div class="leaderboard-entry">
-                <span class="player">NokiaFan</span>
-                <span class="score">28 pts</span>
-            </div>
             <button id="reset" onclick="location.reload()">Reset Game</button>
         </div>
     </div>

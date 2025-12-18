@@ -14,9 +14,9 @@ let cells = [];
 
 // Item definitions
 const ITEMS = {
-    INCOME: { type: 'income', icon: '💵', value: 150, text: "+$150 Income!" },
-    BILL:   { type: 'bill',   icon: '🧾', value: -100, penalty: -300, text: "Bill Paid -$100" },
-    LUXURY: { type: 'luxury', icon: '💎', value: -200, text: "Impulse Buy -$200!" }
+    INCOME: { type: 'income', icon: '&#x1F4B5;', value: 150, text: "+$150 Income!" },
+    BILL:   { type: 'bill',   icon: '&#x1F9FE;', value: -100, penalty: -300, text: "Bill Paid -$100" },
+    LUXURY: { type: 'luxury', icon: '&#x1F48E;', value: -200, text: "Impulse Buy -$200!" }
 };
 
 function initGame() {
@@ -93,7 +93,7 @@ function spawnItem() {
     // Apply to cell
     cellData.item = typeObj;
     cellData.element.classList.add(typeObj.type);
-    cellData.element.innerText = typeObj.icon;
+    cellData.element.innerHTML = typeObj.icon;
 
     // Set lifespan (Bills last longer because you MUST click them)
     const lifespan = typeObj.type === 'bill' ? 2500 : 1500;

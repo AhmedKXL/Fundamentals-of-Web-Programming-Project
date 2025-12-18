@@ -9,7 +9,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Games Page</title>
+  <title>GamersHub</title>
   <link rel="stylesheet" href="styles/home.css">
 </head>
 <body>
@@ -66,10 +66,10 @@ foreach ($images as $img) {
     <a href="./games/connect4.php" class="game-box connect4"><span class="game-box-inner">Connect-4</span></a>
     <a href="./games/snake.php" class="game-box snake"><span class="game-box-inner">Snake</span></a>
     <a href="./games/neatnine.php" class="game-box neat9"><span class="game-box-inner">Neat Nine</span></a>
-    <a href="./games/2048.php" class="game-box snake"><span class="game-box-inner">2048</span></a> <!-- change snake with game name class -->
-    <a href="./games/finance.php" class="game-box snake"><span class="game-box-inner">Finance!</span></a>
-    <a href="./games/minesweeper.php" class="game-box snake"><span class="game-box-inner">Mine Sweeper</span></a>
-    <a href="./games/simon.php" class="game-box snake"><span class="game-box-inner">Simon Says</span></a>
+    <a href="./games/2048.php" class="game-box game2048"><span class="game-box-inner">2048</span></a>
+    <a href="./games/finance.php" class="game-box finance"><span class="game-box-inner">Finance!</span></a>
+    <a href="./games/minesweeper.php" class="game-box minesweeper"><span class="game-box-inner">Mine Sweeper</span></a>
+    <a href="./games/simon.php" class="game-box simon"><span class="game-box-inner">Simon Says</span></a>
   </section>
 
   <!-- Fun Facts -->

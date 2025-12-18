@@ -6,7 +6,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Login Page</title>
+    <title>Login</title>
     <link rel="stylesheet" href="./styles/login.css">
     <script src="./js/login.js"></script>
 </head>

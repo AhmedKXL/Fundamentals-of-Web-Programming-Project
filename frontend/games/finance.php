@@ -47,17 +47,9 @@
                 while($row = mysqli_fetch_assoc($result))
                     echo "<div class=\"leaderboard-entry\">
                             <span class=\"player\">{$row['username']}</span>
-                            <span class=\"score\">{$row['score']}</span>
+                            <span class=\"score\">\${$row['score']}</span>
                         </div>";
             ?>
-            <div class="leaderboard-entry">
-                <span class="player">SaverPro</span>
-                <span class="score">$2500</span>
-            </div>
-            <div class="leaderboard-entry">
-                <span class="player">Thrifty</span>
-                <span class="score">$1800</span>
-            </div>
             <button id="start-btn">Start Budgeting</button>
         </div>
     </div><button class="chatbot-button" onclick="toggleChat()">&#x1F4AC;</button>
