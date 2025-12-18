@@ -26,30 +26,28 @@
 
   <!-- Hero with Leaderboard -->
   <section class="hero">
-  <div class="carousel"><?php
-foreach ($images as $img) {
-    $filename = basename($img);
-    if (preg_match('/^(\d+)_/', $filename, $matches)) {
-        $game_id = (int)$matches[1];
-        ?>
-        <a href="?game_id=<?= $game_id ?>"
-           class="carousel-slide"
-           data-game-id="<?= $game_id ?>">
-          <img src="<?= $img ?>" alt="Game <?= $game_id ?>">
-        </a>
-        <?php
-    }
-}
-?>
-
-
-
+  <div class="carousel">
+    <?php
+      foreach ($images as $img) {
+          $filename = basename($img);
+          if (preg_match('/^(\d+)_/', $filename, $matches)) {
+              $game_id = (int)$matches[1];
+              ?>
+              <a href="?game_id=<?= $game_id ?>"
+                class="carousel-slide"
+                data-game-id="<?= $game_id ?>">
+                <img src="<?= $img ?>" alt="Game <?= $game_id ?>">
+              </a>
+              <?php
+          }
+      }
+    ?>
     <button class="carousel-btn prev">&#10094;</button>
     <button class="carousel-btn next">&#10095;</button>
   </div>
 
   <div class="leaderboard">
-    <h2>Leaderboard</h2>
+    <h2>Latest Top Scores</h2>
     <div class="leaderboard-header">
       <span>Player</span>
       <span>Score</span>
@@ -186,6 +184,8 @@ foreach ($images as $img) {
     window.addEventListener("scroll", fadeInGames);
     fadeInGames(); // run on load
   </script>
+
+  <!-- carousel script -->
   <script>
   const slides = document.querySelectorAll('.carousel-slide');
   const prev = document.querySelector('.prev');

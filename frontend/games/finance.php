@@ -1,7 +1,7 @@
 <?php
     session_start();
     include("../php/connectToDB.php");
-    $sql = "SELECT username, MAX(score) as score FROM Accounts NATURAL JOIN Scores WHERE game_id=7 GROUP BY user_id ORDER BY MAX(score)";
+    $sql = "SELECT username, MAX(score) as score FROM Accounts NATURAL JOIN Scores WHERE game_id=7 GROUP BY user_id ORDER BY MAX(score) DESC";
     $result = mysqli_query($conn, $sql);
 ?>
 <!DOCTYPE html>

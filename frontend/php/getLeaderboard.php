@@ -9,8 +9,9 @@ $sql = "
   NATURAL JOIN Scores
   WHERE game_id = $game_id
   GROUP BY user_id
-  ORDER BY score DESC
-"; //need MIN version
+  ORDER BY created_at DESC
+  LIMIT 5;
+"; // get the latest max score by each user (need another version for min scores i.e. seconds/moves)
 
 $result = mysqli_query($conn, $sql);
 
