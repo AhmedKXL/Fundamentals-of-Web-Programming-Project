@@ -14,14 +14,9 @@ $timezone = $_POST['timezone'];
 $email = $_POST['email'];
 $phone = $_POST['phone'];
 
-// Prepare and execute update query
+// Update query
 $sql = "UPDATE Users 
-        SET gender='$gender', date_of_birth='$dob', time_zone='$timezone' 
-        WHERE user_id='$user_id'";
-mysqli_query($conn, $sql);
-
-$sql = "UPDATE Accounts 
-        SET email='$email', phone_number='$phone' 
+        SET gender='$gender', date_of_birth='$dob', time_zone='$timezone', email='$email', phone_number='$phone'
         WHERE user_id='$user_id'";
 mysqli_query($conn, $sql);
 

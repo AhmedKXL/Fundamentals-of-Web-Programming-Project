@@ -7,7 +7,7 @@ if (!isset($_SESSION['user_id'])) {
 
 include("./php/connectToDB.php");
 
-$sql = "SELECT * FROM Accounts NATURAL JOIN Users NATURAL JOIN Scores NATURAL JOIN Games WHERE user_id={$_SESSION['user_id']}";
+$sql = "SELECT * FROM Accounts NATURAL JOIN Users WHERE user_id={$_SESSION['user_id']}";
 $result = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($result);
 ?>
@@ -42,50 +42,75 @@ $row = mysqli_fetch_assoc($result);
                 <h2 class="full-name"><?php echo $row['full_name']; ?></h2>
                 <p class="username"><?php echo $row['username']; ?></p>
             </div>
-            <!-- <button class="edit-profile" onclick="toggleEditMode()">Edit Profile</button> -->
+            <button type="button" class="edit-profile">Edit Profile</button>
         </div>
+        <form id="user-info" method="POST" action="./php/update_profile.php">
+            <fieldset class="personal-info" id="personal-info-form">
+                <h3 class="personal-information">Personal Information</h3>
+                <div class="line"></div>
+                <div>
+                    <span class="input-section">
+                        <label for="gender">Gender:</label>
+                        <select id="gender" class="input-field" name="gender" disabled>
+                            <option value="male" <?php if($row['gender'] == 'male') echo 'selected'; ?>>Male</option>
+                            <option value="female" <?php if($row['gender'] == 'female') echo 'selected'; ?>>Female</option>
+                            <option value="prefer_not_to_say" <?php if($row['gender'] == 'prefer_not_to_say') echo 'selected'; ?>>Prefer Not to Tell</option>
+                        </select>
+                    </span>
 
-        <form class="personal-info" id="personal-info-form" method="POST" action="./php/update_profile.php">
-            <h3 class="personal-information">Personal Information</h3>
-            <div class="line"></div>
-            <div>
-                <span class="input-section">
-                    <label for="gender">Gender:</label>
-                    <select id="gender" class="input-field" name="gender" disabled>
-                        <option value="male" <?php if($row['gender'] == 'male') echo 'selected'; ?>>Male</option>
-                        <option value="female" <?php if($row['gender'] == 'female') echo 'selected'; ?>>Female</option>
-                        <option value="prefer_not_to_say" <?php if($row['gender'] == 'prefer_not_to_say') echo 'selected'; ?>>Prefer Not to Tell</option>
-                    </select>
-                </span>
+                    <span class="input-section">
+                        <label for="dob">Date of Birth:</label>
+                        <input type="date" id="dob" class="input-field" name="dob" value="<?php echo $row['date_of_birth']; ?>" disabled>
+                    </span>
 
-                <span class="input-section">
-                    <label for="dob">Date of Birth:</label>
-                    <input type="date" id="dob" class="input-field" name="dob" value="<?php echo $row['date_of_birth']; ?>" disabled>
-                </span>
+                    <span class="input-section">
+                        <label for="timezone">Time Zone:</label>
+                        <select id="timezone" name="timezone" class="input-field" disabled>
+                            <option value="UTC-11" <?php if ($row['time_zone'] == 'UTC-11') echo 'selected'; ?>>UTC-11</option>
+                            <option value="UTC-10" <?php if ($row['time_zone'] == 'UTC-10') echo 'selected'; ?>>UTC-10</option>
+                            <option value="UTC-9"  <?php if ($row['time_zone'] == 'UTC-9')  echo 'selected'; ?>>UTC-9</option>
+                            <option value="UTC-8"  <?php if ($row['time_zone'] == 'UTC-8')  echo 'selected'; ?>>UTC-8</option>
+                            <option value="UTC-7"  <?php if ($row['time_zone'] == 'UTC-7')  echo 'selected'; ?>>UTC-7</option>
+                            <option value="UTC-6"  <?php if ($row['time_zone'] == 'UTC-6')  echo 'selected'; ?>>UTC-6</option>
+                            <option value="UTC-5"  <?php if ($row['time_zone'] == 'UTC-5')  echo 'selected'; ?>>UTC-5</option>
+                            <option value="UTC-4"  <?php if ($row['time_zone'] == 'UTC-4')  echo 'selected'; ?>>UTC-4</option>
+                            <option value="UTC-3"  <?php if ($row['time_zone'] == 'UTC-3')  echo 'selected'; ?>>UTC-3</option>
+                            <option value="UTC-2"  <?php if ($row['time_zone'] == 'UTC-2')  echo 'selected'; ?>>UTC-2</option>
+                            <option value="UTC-1"  <?php if ($row['time_zone'] == 'UTC-1')  echo 'selected'; ?>>UTC-1</option>
+                            <option value="UTC+0"  <?php if ($row['time_zone'] == 'UTC+0')  echo 'selected'; ?>>UTC+0</option>
+                            <option value="UTC+1"  <?php if ($row['time_zone'] == 'UTC+1')  echo 'selected'; ?>>UTC+1</option>
+                            <option value="UTC+2"  <?php if ($row['time_zone'] == 'UTC+2')  echo 'selected'; ?>>UTC+2</option>
+                            <option value="UTC+3"  <?php if ($row['time_zone'] == 'UTC+3')  echo 'selected'; ?>>UTC+3</option>
+                            <option value="UTC+4"  <?php if ($row['time_zone'] == 'UTC+4')  echo 'selected'; ?>>UTC+4</option>
+                            <option value="UTC+5"  <?php if ($row['time_zone'] == 'UTC+5')  echo 'selected'; ?>>UTC+5</option>
+                            <option value="UTC+6"  <?php if ($row['time_zone'] == 'UTC+6')  echo 'selected'; ?>>UTC+6</option>
+                            <option value="UTC+7"  <?php if ($row['time_zone'] == 'UTC+7')  echo 'selected'; ?>>UTC+7</option>
+                            <option value="UTC+8"  <?php if ($row['time_zone'] == 'UTC+8')  echo 'selected'; ?>>UTC+8</option>
+                            <option value="UTC+9"  <?php if ($row['time_zone'] == 'UTC+9')  echo 'selected'; ?>>UTC+9</option>
+                            <option value="UTC+10" <?php if ($row['time_zone'] == 'UTC+10') echo 'selected'; ?>>UTC+10</option>
+                            <option value="UTC+11" <?php if ($row['time_zone'] == 'UTC+11') echo 'selected'; ?>>UTC+11</option>
+                            <option value="UTC+12" <?php if ($row['time_zone'] == 'UTC+12') echo 'selected'; ?>>UTC+12</option>
+                        </select>
+                    </span>
+                </div>
+            </fieldset>
 
-                <span class="input-section">
-                    <label for="timezone">Time Zone:</label>
-                    <input type="text" id="timezone" class="input-field" name="timezone" value="<?php echo $row['time_zone']; ?>" disabled>
-                </span>
-            </div>
+            <fieldset class="contact-info" id="contact-info-form">
+                <h3 class="contact-information">Contact Information</h3>
+                <div class="line"></div>
+                <div>
+                    <span class="input-section">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" class="input-field" name="email" value="<?php echo $row['email']; ?>" disabled>
+                    </span>
+
+                    <span class="input-section">
+                        <label for="phone">Phone Number:</label>
+                        <input type="tel" id="phone" class="input-field" name="phone" value="<?php echo $row['phone_number']; ?>" disabled>
+                    </span>
+                </div>
+            </fieldset>
         </form>
-
-        <form class="contact-info" id="contact-info-form" method="POST" action="./php/update_profile.php">
-            <h3 class="contact-information">Contact Information</h3>
-            <div class="line"></div>
-            <div>
-                <span class="input-section">
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" class="input-field" name="email" value="<?php echo $row['email']; ?>" disabled>
-                </span>
-
-                <span class="input-section">
-                    <label for="phone">Phone Number:</label>
-                    <input type="tel" id="phone" class="input-field" name="phone" value="<?php echo $row['phone_number']; ?>" disabled>
-                </span>
-            </div>
-        </form>
-
         <div class="high-scores">
             <h3>Scores</h3>
             <div class="line"></div>
@@ -98,13 +123,18 @@ $row = mysqli_fetch_assoc($result);
                 </thead>
                 <tbody>
                     <?php
-                    // Loop through the games and scores (assuming result has multiple rows)
-                    do {
-                        echo "<tr>";
-                        echo "<td>{$row['name']}</td>";
-                        echo "<td>{$row['score']}</td>";
-                        echo "</tr>";
-                    } while ($row = mysqli_fetch_assoc($result));
+                        $sql = "SELECT * FROM Accounts NATURAL JOIN Users NATURAL JOIN Scores NATURAL JOIN Games WHERE user_id={$_SESSION['user_id']}";
+                        $result = mysqli_query($conn, $sql);
+                        if (mysqli_num_rows($result) > 0){
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                echo "<tr>";
+                                echo "<td>{$row['name']}</td>";
+                                echo "<td>{$row['score']}</td>";
+                                echo "</tr>";
+                            }
+                        }else{
+                            echo "<tr><td colspan='2' style='color: #888; text-align: center; font-style: italic;'>No Scores</td></tr>";
+                        }
                     ?>
                 </tbody>
             </table>

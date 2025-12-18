@@ -11,6 +11,10 @@ body {
     overflow-x: hidden;
 }
 
+fieldset {
+  border: none;
+}
+
 /* --- HEADER --- */
 .header {
     width: 100%;
