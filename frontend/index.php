@@ -19,6 +19,7 @@
     <div class="logo"></div>
     <nav class="nav">
       <a href="about.html">About</a>
+      <?php echo (isset($_SESSION['user_id']) ? "<a href=\"./profile.php\" class=\"login\">Profile</a>" : "") ?>
       <?php echo (isset($_SESSION['user_id']) ? "<a href=\"./php/logout.php\" class=\"login\">Logout</a>" : "<a href=\"./login.php\" class=\"login\">Login</a>") ?>
     </nav>
   </header>
